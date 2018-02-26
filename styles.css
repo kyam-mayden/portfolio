@@ -105,14 +105,14 @@
 /*content*/
 
 main.container{
-	height:1000px;
+	height:1300px;
 	margin-top:20px;
 	overflow:auto;
 }
 
 aside{
 	float:right;
-	height:700px;
+	height:1200px;
 	width:30%;
 	border:2px solid black;
 	margin:10px 5px 5px 5px;
@@ -120,28 +120,29 @@ aside{
 
 .smPort{
 	height:900px;
-	border:2px solid black;
 	width:65%;
 	margin:10px;
 }
 
 article{
 	width:100%;
-	background-color:red;
-	height:200px;
+	height:300px;
 	margin:10px;
-	/*padding:10px;*/
+	border:2px solid black;
 }
 
 .itemPic{
-	width:80%;
+	width:90%;
 	margin:0 auto;
-	height:150px;
-	background-color:blue;
+	height:250px;
+	border:2px solid black;
 }
 
 .itemText h3,
 .itemText p{
 	margin:3px auto;
+}
 
+.item1 .itemPic{
+	background-image:url("/Users/academy/Documents/MaydenPROJECTS/Logo/KyamLogo")
 }
