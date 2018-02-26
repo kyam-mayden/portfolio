@@ -18,14 +18,24 @@
 	padding:0;
 }
 
-.container li,
-.container a{
+.navLinks li,
+.social a{
 	display: inline-block;
 	margin: 0 auto;
 	width: 33.3%;
 	float:left;
 	text-align:center;
+	color:black;
+	/*border: 2px solid #000000;*/
 }
+
+.navLinks li a,
+.social a {
+	text-decoration: none;
+	color: black;
+	padding:5px;
+}
+
 
 .title{
 	border: 5px solid #000000;
@@ -42,20 +52,15 @@
 	display: inline-block;
 	float: right;
 	width: 25%;
-	margin-top:50px;
+}
+
+.navLinks,
+.social{
 	height:50px;
-}
-
-.navLinks{
-	height:50px;
 	margin-top:50px;
 }
 
-.navlinks li a{
-	text-align:center;
-	padding:0px 2px
-}
-
+.navlinks,
 .headImage{
 	background-image:url("headImage.jpg");
 	height:300px;
@@ -63,8 +68,52 @@
 	z-index:3;
 	background-size:cover;
 	background-repeat: no-repeat;
+	background-position: left bottom;
 }
 
+.navLinks li a:hover{
+	border:2px solid #000000;
+}
 
-/*Media Queries*/
+.social a{
+	height:30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-bottom:1px;
+	background-height:100%;
 
+}
+
+.twitter{
+	background-image:url("twitter.svg");
+}
+
+.github{
+	background-image:url("github.svg");
+}
+
+.linkedIn{
+	background-image:url("linkedIn.svg");
+}
+
+/*content*/
+
+main.container{
+	height:1000px;
+	margin-top:20px;
+}
+
+aside{
+	float:right;
+	height:700px;
+	width:300px;
+	border:2px solid black;
+	margin:10px 5px 5px 5px;
+}
+
+.smPort{
+	height:900px;
+	border:2px solid black;
+	width:70%;
+	margin:10px;
+}
