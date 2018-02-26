@@ -2,8 +2,10 @@
 	box-sizing:border-box;
 }
 
+/*Header and links*/
+
 .container{
-	width: 80%;
+	width: 90%;
 	border: 5px solid #000000;
 	overflow: auto;
 	margin: 0 auto;
@@ -13,7 +15,6 @@
 	display: inline-block;
 	float: left;
 	width:25%;
-	border: 1px solid #000000;
 	padding:0;
 }
 
@@ -41,7 +42,6 @@
 	display: inline-block;
 	float: right;
 	width: 25%;
-	border: 1px solid #000000;
 	margin-top:50px;
 	height:50px;
 }
@@ -51,9 +51,20 @@
 	margin-top:50px;
 }
 
+.navlinks li a{
+	text-align:center;
+	padding:0px 2px
+}
+
 .headImage{
-	background-color:red;
+	background-image:url("headImage.jpg");
 	height:300px;
 	margin-top:80px;
 	z-index:3;
+	background-size:cover;
+	background-repeat: no-repeat;
 }
+
+
+/*Media Queries*/
+
