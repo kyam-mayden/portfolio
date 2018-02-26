@@ -4,7 +4,8 @@
 
 /*Header and links*/
 
-.container{
+.container {
+	position:relative;
 	width: 90%;
 	border: 5px solid #000000;
 	overflow: auto;
@@ -42,7 +43,7 @@
 	width: 50%;
 	display: inline-block;
 	float: left;
-	margin-top: 10px;
+	margin: 10px 0 0 0;
 	text-align:center;
 	z-index:5;
 	background-color:#ffffff;
@@ -68,7 +69,7 @@
 	z-index:3;
 	background-size:cover;
 	background-repeat: no-repeat;
-	background-position: left bottom;
+	/*background-position: left bottom;*/
 }
 
 .navLinks li a:hover{
@@ -96,17 +97,23 @@
 	background-image:url("linkedIn.svg");
 }
 
+.title h4{
+	color:gray;
+}
+
+
 /*content*/
 
 main.container{
 	height:1000px;
 	margin-top:20px;
+	overflow:auto;
 }
 
 aside{
 	float:right;
 	height:700px;
-	width:300px;
+	width:30%;
 	border:2px solid black;
 	margin:10px 5px 5px 5px;
 }
@@ -114,6 +121,27 @@ aside{
 .smPort{
 	height:900px;
 	border:2px solid black;
-	width:70%;
+	width:65%;
 	margin:10px;
+}
+
+article{
+	width:100%;
+	background-color:red;
+	height:200px;
+	margin:10px;
+	/*padding:10px;*/
+}
+
+.itemPic{
+	width:80%;
+	margin:0 auto;
+	height:150px;
+	background-color:blue;
+}
+
+.itemText h3,
+.itemText p{
+	margin:3px auto;
+
 }
