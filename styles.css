@@ -112,15 +112,19 @@ main.container{
 
 aside{
 	float:right;
-	height:1200px;
+	height:300px;
 	width:30%;
 	border:2px solid black;
 	margin:10px 5px 5px 5px;
 }
 
+.devTo h3{
+	text-align:center;
+}
+
 .smPort{
 	height:900px;
-	width:65%;
+	width:100%;
 	margin:10px;
 }
 
@@ -138,11 +142,11 @@ article{
 	border:2px solid black;
 }
 
+.item1{
+	width:65%;
+}
+
 .itemText h3,
 .itemText p{
 	margin:3px auto;
-}
-
-.item1 .itemPic{
-	background-image:url("/Users/academy/Documents/MaydenPROJECTS/Logo/KyamLogo")
 }
