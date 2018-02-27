@@ -63,12 +63,11 @@
 
 .navlinks,
 .headImage{
-	background-image:url("headImage.jpg");
 	height:400px;
 	margin-top:80px;
 	z-index:3;
 	background-size:cover;
-	background-repeat: no-repeat;
+	background: url("headImage.jpg") no-repeat;
 
 	/*background-position: left bottom;*/
 }
@@ -168,7 +167,10 @@ article{
 	margin:3px auto;
 }
 
-
+.img{
+	float:left;
+	margin:0 auto;
+}
 
 
 /*Footer*/
