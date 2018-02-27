@@ -27,14 +27,14 @@
 	float:left;
 	text-align:center;
 	color:black;
-	/*border: 2px solid #000000;*/
+	border: 2px solid #ffffff;
 }
 
 .navLinks li a,
 .social a {
 	text-decoration: none;
 	color: black;
-	padding:5px;
+	padding:3px;
 }
 
 
@@ -83,6 +83,10 @@
 }
 
 .navLinks li a:hover{
+	border:2px solid #000000;
+}
+
+a[href="index.html"]{
 	border:2px solid #000000;
 }
 
@@ -161,10 +165,12 @@ article{
 	margin:3px auto;
 }
 
+
 /*Footer*/
 
-/*footer{*/
-	/*height:100px;*/
-	/*border:3px solid #000000;*/
-	/*paddi*/
-/*}*/
+#foot{
+	height:100px;
+	border:3px solid #000000;
+	padding:5px;
+	margin-top:20px;
+}
