@@ -6,53 +6,53 @@
 
 .container {
 	position:relative;
-	width: 90%;
-	border: 5px solid #000000;
-	overflow: auto;
-	margin: 0 auto;
+	width:90%;
+	border:5px solid #000000;
+	overflow:auto;
+	margin:0 auto;
 }
 
 .container ul{
-	display: inline-block;
-	float: left;
+	display:inline-block;
+	float:left;
 	width:25%;
 	padding:0;
 }
 
 .navLinks li,
 .social a{
-	display: inline-block;
-	margin: 0 auto;
-	width: 33.3%;
+	display:inline-block;
+	margin:0 auto;
+	width:33.3%;
 	float:left;
 	text-align:center;
-	color:black;
-	border: 2px solid #ffffff;
+	color:#000000;
+	border:2px solid #ffffff;
 }
 
 .navLinks li a,
 .social a {
-	text-decoration: none;
-	color: black;
+	text-decoration:none;
+	color:#000000;
 	padding:3px;
 }
 
 
 .title{
-	border: 5px solid #000000;
-	width: 50%;
-	display: inline-block;
-	float: left;
-	margin: 10px 0 0 0;
+	border:5px solid #000000;
+	width:50%;
+	display:inline-block;
+	float:left;
+	margin:10px 0 0 0;
 	text-align:center;
 	z-index:5;
 	background-color:#ffffff;
 }
 
 .social{
-	display: inline-block;
-	float: right;
-	width: 25%;
+	display:inline-block;
+	float:right;
+	width:25%;
 }
 
 .navLinks,
@@ -68,9 +68,7 @@
 	margin-top:80px;
 	z-index:3;
 	background-size:cover;
-	background-repeat: no-repeat;
-
-	/*background-position: left bottom;*/
+	background-repeat:no-repeat;
 }
 
 .headImage h3{
@@ -92,11 +90,10 @@ a[href="index.html"]{
 
 .social a{
 	height:30px;
-	background-repeat: no-repeat;
-	background-position: center;
+	background-repeat:no-repeat;
+	background-position:center;
 	margin-bottom:1px;
 	background-height:100%;
-
 }
 
 .twitter{
@@ -112,7 +109,7 @@ a[href="index.html"]{
 }
 
 .title h4{
-	color:gray;
+	color:#808080;
 }
 
 
@@ -167,8 +164,6 @@ article{
 .itemText p{
 	margin:3px auto;
 }
-
-
 
 
 /*Footer*/
