@@ -1,0 +1,180 @@
+*{
+	box-sizing:border-box;
+}
+
+/*Header and links*/
+
+li{
+	list-style: none;
+}
+
+.container {
+	position:relative;
+	width:90%;
+	border:5px solid #000000;
+	overflow:auto;
+	margin:0 auto;
+}
+
+.container ul{
+	display:inline-block;
+	float:left;
+	width:25%;
+	padding:0;
+}
+
+.navLinks li,
+.social a{
+	display:inline-block;
+	margin:0 auto;
+	width:33.3%;
+	float:left;
+	text-align:center;
+	color:#000000;
+	border:2px solid #ffffff;
+}
+
+.navLinks li a,
+.social a {
+	text-decoration:none;
+	color:#000000;
+	padding:3px;
+}
+
+
+.title{
+	border:5px solid #000000;
+	width:50%;
+	display:inline-block;
+	float:left;
+	margin:10px 0 0 0;
+	text-align:center;
+	z-index:5;
+	background-color:#ffffff;
+}
+
+.social{
+	display:inline-block;
+	float:right;
+	width:25%;
+}
+
+.navLinks,
+.social{
+	height:50px;
+	margin-top:50px;
+}
+
+.navlinks,
+.headImage{
+	background-image:url("headImage.jpg");
+	height:400px;
+	margin-top:80px;
+	z-index:3;
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+
+.headImage h3{
+	position:absolute;
+	color:#ffffff;
+	bottom:0;
+	text-align:center;
+	border:2px solid #ffffff;
+	margin:10px;
+}
+
+.navLinks li a:hover{
+	border:2px solid #000000;
+}
+
+a[href="index.html"]{
+	border:2px solid #000000;
+}
+
+.social a{
+	height:30px;
+	background-repeat:no-repeat;
+	background-position:center;
+	margin-bottom:1px;
+	background-height:100%;
+}
+
+.twitter{
+	background-image:url("twitter.svg");
+}
+
+.github{
+	background-image:url("github.svg");
+}
+
+.linkedIn{
+	background-image:url("linkedIn.svg");
+}
+
+.title h4{
+	color:#808080;
+}
+
+
+/*content*/
+
+main.container{
+	min-height:1200px;
+	margin-top:20px;
+	overflow:auto;
+}
+
+aside{
+	float:right;
+	height:300px;
+	width:30%;
+	border:2px solid black;
+	margin:10px 5px 5px 5px;
+}
+
+.devTo h3{
+	text-align:center;
+}
+
+.smPort{
+	height:900px;
+	width:95%;
+	margin:10px;
+}
+
+article{
+	width:100%;
+	margin:10px;
+	border:2px solid black;
+}
+
+.itemPic{
+	width:90%;
+	margin:0 auto;
+	height:250px;
+	border:2px solid black;
+}
+
+.item1{
+	width:65%;
+}
+
+.item2 .itemPic{
+	height:150px;
+}
+
+.itemText h3,
+.itemText p{
+	margin:3px auto;
+}
+
+
+/*Footer*/
+
+#foot{
+	height:100px;
+	border:3px solid #000000;
+	padding:5px;
+	margin-top:20px;
+}
