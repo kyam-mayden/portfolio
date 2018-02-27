@@ -221,22 +221,34 @@ article{
 
 	header nav .navLinks{
 		position:fixed;
-		top:10px;
+		top:0;
+		left:0;
 		margin:0 auto;
-		width:85%;
+		width:100%;
 		z-index:10;
+		background-color:#000000;
+		opacity:0.7;
+		padding:none;
+		height:40px;
 	}
 
 	.navLinks li a{
 		width:33%;
 		font-size:2rem;
+		color:#ffffff;
+		padding:none;
+		margin:0;
+	}
+
+	.navLinks li a:hover{
+		border:none;
 	}
 
 
 	.title{
 		width:75%;
 		float:left;
-		margin:60px 10%;
+		margin:40px 10%;
 	}
 
 	h1{
@@ -244,4 +256,27 @@ article{
 	}
 
 
+}
+
+@media screen and (min-width:1280px) {
+	.item2 .itemPic {
+		width: 95%;
+		height: 250px;
+	}
+
+	main .container {
+		min-height: 1500px;
+	}
+
+	article {
+		height: 350px;
+	}
+
+	.itemText h3 {
+		font-size: 3rem;
+	}
+
+	.itemText p{
+		font-size:2rem;
+	}
 }
