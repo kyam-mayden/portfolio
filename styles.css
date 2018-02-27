@@ -4,6 +4,10 @@
 
 /*Header and links*/
 
+li{
+	list-style: none;
+}
+
 .container {
 	position:relative;
 	width:90%;
