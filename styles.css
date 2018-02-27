@@ -64,12 +64,22 @@
 .navlinks,
 .headImage{
 	background-image:url("headImage.jpg");
-	height:300px;
+	height:400px;
 	margin-top:80px;
 	z-index:3;
 	background-size:cover;
 	background-repeat: no-repeat;
+
 	/*background-position: left bottom;*/
+}
+
+.headImage h3{
+	position:absolute;
+	color:#ffffff;
+	bottom:0;
+	text-align:center;
+	border:2px solid #ffffff;
+	margin:10px;
 }
 
 .navLinks li a:hover{
@@ -124,7 +134,7 @@ aside{
 
 .smPort{
 	height:900px;
-	width:100%;
+	width:95%;
 	margin:10px;
 }
 
@@ -150,3 +160,11 @@ article{
 .itemText p{
 	margin:3px auto;
 }
+
+/*Footer*/
+
+/*footer{*/
+	/*height:100px;*/
+	/*border:3px solid #000000;*/
+	/*paddi*/
+/*}*/
