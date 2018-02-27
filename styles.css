@@ -76,8 +76,6 @@ a{
 	z-index:3;
 	background-size:cover;
 	background: url("headImage.jpg") no-repeat;
-
-	/*background-position: left bottom;*/
 }
 
 .headImage h3{
@@ -87,6 +85,8 @@ a{
 	text-align:center;
 	border:2px solid #ffffff;
 	margin:10px;
+
+
 }
 
 .navLinks li a:hover{
@@ -124,7 +124,7 @@ a[href="index.html"]{
 /*content*/
 
 main.container{
-	height:1300px;
+	height:1000px;
 	margin-top:20px;
 	overflow:auto;
 }
