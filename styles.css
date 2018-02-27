@@ -144,7 +144,6 @@ aside{
 
 article{
 	width:100%;
-	height:300px;
 	margin:10px;
 	border:2px solid black;
 }
@@ -160,10 +159,16 @@ article{
 	width:65%;
 }
 
+.item2 .itemPic{
+	height:150px;
+}
+
 .itemText h3,
 .itemText p{
 	margin:3px auto;
 }
+
+
 
 
 /*Footer*/
