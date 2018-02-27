@@ -272,7 +272,7 @@ article{
 	}
 
 	article {
-		height: 280px;
+		height: 300px;
 	}
 
 	.itemText h3 {
@@ -298,10 +298,14 @@ article{
 	}
 }
 
-@media screen and (max-width:700px){
-	.item1{
-		height:260px;
+@media screen and (max-width:700px) {
+	.item1 {
+		height: 260px;
 	}
-
-
 }
+
+@media screen and (max-width:600px){
+	.itemPic{
+		width:100%;
+		height:230px;
+	}
