@@ -124,7 +124,7 @@ a[href="index.html"]{
 /*content*/
 
 main.container{
-	height:1000px;
+	height:1100px;
 	margin-top:20px;
 	overflow:auto;
 }
@@ -152,6 +152,7 @@ article{
 	margin:10px;
 	border:2px solid black;
 	position:relative;
+	min-height:200px;
 }
 
 .itemPic{
@@ -270,12 +271,8 @@ article{
 		height: 250px;
 	}
 
-	main .container {
-		min-height: 1500px;
-	}
-
 	article {
-		height: 350px;
+		height: 280px;
 	}
 
 	.itemText h3 {
@@ -288,6 +285,16 @@ article{
 
 	.navLinks li a{
 		font-size:1.3rem;
+	}
+
+	#bigBox{
+		height: 1500px;
+	}
+
+	.social a{
+		height:40px;
+		position:relative;
+		top:-15px;
 	}
 }
 
