@@ -1,6 +1,6 @@
 *{
 	box-sizing:border-box;
-	font-family:Roboto;
+	font-family:Roboto, sans-serif;
 }
 
 body{
@@ -81,7 +81,7 @@ a{
 }
 
 .navlinks,
-.headImage {
+.headImage{
 	height:700px;
 	margin-top:80px;
 	z-index:3;
@@ -115,7 +115,6 @@ a{
 
 .buttonHolder div:hover{
 	background-color:#999999;
-
 }
 
 .headImage h3{
@@ -215,7 +214,7 @@ div[class^="logo-"] img{
 
 /*content*/
 
-main.container {
+main.container{
 	min-height:800px;
 	overflow:auto;
 }
@@ -326,11 +325,6 @@ article{
 
 /*Media Queries*/
 
-/*@media screen and (max-width:1250px){*/
-	/*.itemPic{*/
-		/*width:85%;*/
-	/*}*/
-/*}*/
 
 @media screen and (max-width:1024px){
 	.itemPic{
