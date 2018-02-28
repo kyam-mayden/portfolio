@@ -49,6 +49,10 @@ a{
 	padding:3px;
 }
 
+.social a,
+.navLinks ul li a{
+	animation: mymove 3s;
+}
 
 .title{
 	border:5px solid #000000;
@@ -103,7 +107,6 @@ a{
 	text-align:center;
 	height:100%;
 	position:relative;
->>>>>>> responsive
 }
 
 .headImage h3{
@@ -113,6 +116,35 @@ a{
 	text-align:center;
 	border:2px solid #ffffff;
 	margin:10px;
+}
+
+.logo-1,
+.logo-2 {
+	animation:leftmove 2s;
+}
+
+@keyframes leftmove{
+	from {left:-300px;}
+	to {left:0px;}
+}
+
+.logo-4,
+.logo-5{
+	animation:rightmove 2s;
+}
+
+@keyframes rightmove{
+	from {right:-300px;}
+	to {right:0px;}
+}
+
+.logo-3{
+	animation:topdown 2s;
+}
+
+@keyframes topdown{
+	from {top:-600px;}
+	to {top:0px;}
 }
 
 .navLinks li a:hover{
@@ -153,6 +185,7 @@ a[href="index.html"]{
 }
 
 div[class^="logo-"]{
+	position:relative;
 	width:20%;
 	float:left;
 	height:100%;
