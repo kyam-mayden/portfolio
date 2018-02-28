@@ -10,11 +10,11 @@ body{
 /*Header and links*/
 
 li{
-	list-style: none;
+	list-style:none;
 }
 
 a{
-	text-decoration: none;
+	text-decoration:none;
 	color:#000000;
 }
 
@@ -23,7 +23,6 @@ a{
 	width:100%;
 	overflow:auto;
 	margin:0 auto;
-	background-color:
 }
 
 .container ul{
@@ -45,7 +44,7 @@ a{
 }
 
 .navLinks li a,
-.social a {
+.social a{
 	text-decoration:none;
 	color:#000000;
 	padding:3px;
@@ -54,7 +53,7 @@ a{
 
 .social a,
 .navLinks ul li a{
-	animation: mymove 3s;
+	animation:mymove 3s;
 }
 
 .title{
@@ -83,11 +82,11 @@ a{
 
 .navlinks,
 .headImage {
-	height: 700px;
-	margin-top: 80px;
-	z-index: 3;
-	background-size: contain;
-	background: url("background.jpg") no-repeat fixed center;
+	height:700px;
+	margin-top:80px;
+	z-index:3;
+	background-size:contain;
+	background:url("background.jpg") no-repeat fixed center;
 }
 
 .buttonHolder{
@@ -214,14 +213,11 @@ div[class^="logo-"] img{
 	height:100px;
 }
 
-.item4{
-	height:
-}
 /*content*/
 
 main.container {
-	min-height: 800px;
-	overflow: auto;
+	min-height:800px;
+	overflow:auto;
 }
 
 aside{
@@ -231,7 +227,7 @@ aside{
 	background-color:#ffffe6;
 	opacity:0.8;
 	border-radius:5px;
-	border: 2px solid #ffe6b3;
+	border:2px solid #ffe6b3;
 	margin:10px 5px 5px 5px;
 }
 
