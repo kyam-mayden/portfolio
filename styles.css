@@ -71,11 +71,33 @@ a{
 
 .navlinks,
 .headImage{
-	height:400px;
+	height:700px;
 	margin-top:80px;
 	z-index:3;
 	background-size:cover;
 	background: url("headImage.jpg") no-repeat;
+}
+
+.buttonHolder{
+	height:100px;
+	position:relative;
+	top:60px;
+}
+
+.buttonHolder div{
+	width:30%;
+	height:100px;
+	background-color:gray;
+	margin:0 auto;
+	position:relative;
+	opacity:0.7;
+}
+
+.buttonHolder div h2{
+	margin:0 auto;
+	text-align:center;
+	height:100%;
+	position:relative;
 }
 
 .headImage h3{
@@ -85,8 +107,6 @@ a{
 	text-align:center;
 	border:2px solid #ffffff;
 	margin:10px;
-
-
 }
 
 .navLinks li a:hover{
@@ -124,7 +144,7 @@ a[href="index.html"]{
 /*content*/
 
 main.container{
-	height:1100px;
+	height:1200px;
 	margin-top:20px;
 	overflow:auto;
 }
@@ -187,6 +207,10 @@ article{
 	bottom:0;
 }
 
+.smPort h1{
+	display:none;
+}
+
 /*Footer*/
 
 #foot{
@@ -215,6 +239,14 @@ article{
 		display:none;
 	}
 
+	.headImage{
+		height:500px;
+	}
+
+	.buttonHolder{
+		display:none;
+	}
+
 	.item1{
 		width:100%;
 		height:300px;
@@ -237,7 +269,6 @@ article{
 		z-index:10;
 		background-color:#000000;
 		opacity:0.7;
-		padding:none;
 		height:40px;
 	}
 
@@ -245,7 +276,6 @@ article{
 		width:33%;
 		font-size:2rem;
 		color:#ffffff;
-		padding:none;
 		margin:0;
 	}
 
@@ -263,6 +293,13 @@ article{
 	h1{
 		font-size:3.5rem;
 	}
+
+
+	main .smPort h1{
+		display:block;
+		text-align:center;
+	}
+
 }
 
 @media screen and (min-width:1280px) {
@@ -296,6 +333,8 @@ article{
 		position:relative;
 		top:-15px;
 	}
+
+
 }
 
 @media screen and (max-width:700px) {
@@ -304,8 +343,9 @@ article{
 	}
 }
 
-@media screen and (max-width:600px){
-	.itemPic{
-		width:100%;
-		height:230px;
+@media screen and (max-width:600px) {
+	.itemPic {
+		width: 100%;
+		height: 230px;
 	}
+}
