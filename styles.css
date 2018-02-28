@@ -214,11 +214,13 @@ div[class^="logo-"] img{
 	height:100px;
 }
 
-
+.item4{
+	height:
+}
 /*content*/
 
 main.container {
-	min-height: 1200px;
+	min-height: 800px;
 	overflow: auto;
 }
 
@@ -238,7 +240,7 @@ aside{
 }
 
 .smPort{
-	height:900px;
+	height:700px;
 	width:95%;
 	margin:10px;
 }
@@ -275,6 +277,14 @@ article{
 	height:150px;
 }
 
+.item3{
+	height:250px;
+}
+
+.item3 .itemPic{
+	height:200px;
+}
+
 .itemText h3,
 .itemText p{
 	margin:3px auto;
@@ -285,6 +295,11 @@ article{
 	bottom:0;
 }
 
+.item3 .itemText{
+	position:absolute;
+	bottom:0;
+	left:0px;
+}
 
 .smPort h1{
 	display:none;
@@ -421,7 +436,7 @@ article{
 	}
 
 	#bigBox{
-		height:1500px;
+		height:900px;
 	}
 
 	.social a{
