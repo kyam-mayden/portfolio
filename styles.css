@@ -1,9 +1,11 @@
 *{
 	box-sizing:border-box;
+	font-family:Roboto;
 }
 
 body{
 	min-width:550px;
+	background-color:#fffbf6;
 }
 /*Header and links*/
 
@@ -18,8 +20,7 @@ a{
 
 .container{
 	position:relative;
-	width:90%;
-	border:5px solid #000000;
+	width:100%;
 	overflow:auto;
 	margin:0 auto;
 }
@@ -47,6 +48,7 @@ a{
 	text-decoration:none;
 	color:#000000;
 	padding:3px;
+	transition: background-color 1s;
 }
 
 .social a,
@@ -55,7 +57,7 @@ a{
 }
 
 .title{
-	border:5px solid #000000;
+	border-radius:10px;
 	width:50%;
 	display:inline-block;
 	float:left;
@@ -63,6 +65,7 @@ a{
 	text-align:center;
 	z-index:5;
 	background-color:#ffffff;
+	border:2px solid black;
 }
 
 .social{
@@ -78,13 +81,12 @@ a{
 }
 
 .navlinks,
-.headImage{
-	height:700px;
-	margin-top:80px;
-	z-index:3;
-	background-size:cover;
-	background-repeat:no-repeat;
-	background: url("headImage.jpg") no-repeat;
+.headImage {
+	height: 700px;
+	margin-top: 80px;
+	z-index: 3;
+	background-size: contain;
+	background: url("background.jpg") no-repeat fixed center;
 }
 
 .buttonHolder{
@@ -96,11 +98,13 @@ a{
 .buttonHolder div{
 	width:30%;
 	height:100px;
-	background-color:gray;
+	background-color:#e6e6e6;
 	margin:0 auto;
 	position:relative;
 	opacity:0.7;
 	text-align:center;
+	border-radius:5px;
+	transition:background-color 2s;
 }
 
 .buttonHolder div h2{
@@ -109,13 +113,21 @@ a{
 	position:relative;
 }
 
+.buttonHolder div:hover{
+	background-color:#999999;
+
+}
+
 .headImage h3{
 	position:absolute;
 	color:#ffffff;
 	bottom:0;
 	text-align:center;
-	border:2px solid #ffffff;
+	border-radius:5px;
 	margin:10px;
+	background-color:#36688d;
+	font-weight:200;
+	opacity:0.7;
 }
 
 .logo-1,
@@ -148,7 +160,10 @@ a{
 }
 
 .navLinks li a:hover{
-	border:2px solid #000000;
+	background-color:#000000;
+	border-radius:5px;
+	color:#ffffff;
+	opacity:0.7;
 }
 
 a[href="index.html"]{
@@ -198,12 +213,12 @@ div[class^="logo-"] img{
 	height:100px;
 }
 
+
 /*content*/
 
-main.container{
-	min-height:1200px;
-	margin-top:20px;
-	overflow:auto;
+main.container {
+	min-height: 1200px;
+	overflow: auto;
 }
 
 aside{
@@ -230,6 +245,8 @@ article{
 	border:2px solid black;
 	position:relative;
 	min-height:200px;
+	background-color:#ffffff;
+	opacity:0.8;
 }
 
 .itemPic{
@@ -360,7 +377,6 @@ article{
 	.logoBox{
 		display:none;
 	}
-
 }
 
 @media screen and (min-width:1280px) {
