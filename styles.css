@@ -140,6 +140,24 @@ a[href="index.html"]{
 	color:#606060;
 }
 
+.logoBox{
+	height:100px;
+	position:relative;
+	top:380px;
+}
+
+div[class^="logo-"]{
+	width:25%;
+	float:left;
+	height:100%;
+	align-content:center;
+	padding:0 7%;
+}
+
+div[class^="logo-"] img{
+	margin:0 auto;
+	height:100px;
+}
 
 /*content*/
 
@@ -297,6 +315,10 @@ article{
 	main .smPort h1{
 		display:block;
 		text-align:center;
+	}
+
+	.logoBox{
+		display:none;
 	}
 
 }
