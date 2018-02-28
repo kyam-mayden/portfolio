@@ -23,6 +23,7 @@ a{
 	width:100%;
 	overflow:auto;
 	margin:0 auto;
+	background-color:
 }
 
 .container ul{
@@ -225,7 +226,10 @@ aside{
 	float:right;
 	height:250px;
 	width:30%;
-	border:2px solid black;
+	background-color:#ffffe6;
+	opacity:0.8;
+	border-radius:5px;
+	border: 2px solid #ffe6b3;
 	margin:10px 5px 5px 5px;
 }
 
@@ -242,11 +246,12 @@ aside{
 article{
 	width:100%;
 	margin:10px;
-	border:2px solid black;
 	position:relative;
 	min-height:200px;
-	background-color:#ffffff;
+	background-color:#ffffe6;
 	opacity:0.8;
+	border-radius:5px;
+	border: 2px solid #ffe6b3;
 }
 
 .itemPic{
@@ -285,26 +290,40 @@ article{
 	display:none;
 }
 
+.blogs a{
+	font-weight:700;
+}
+
 /*Footer*/
 
 #foot{
-	height:100px;
+	height:50px;
 	border:3px solid #000000;
 	padding:5px;
 	margin-top:20px;
 }
 
+#email{
+	float:left;
+	margin:0;
+}
+
+#phone{
+	float:right;
+	margin:0;
+}
+
 /*Media Queries*/
 
-@media screen and (max-width:1250px){
-	.itemPic{
-		width:85%;
-	}
-}
+/*@media screen and (max-width:1250px){*/
+	/*.itemPic{*/
+		/*width:85%;*/
+	/*}*/
+/*}*/
 
 @media screen and (max-width:1024px){
 	.itemPic{
-		width:95%;
+		width:85%;
 	}
 }
 
@@ -416,7 +435,7 @@ article{
 
 @media screen and (max-width:700px) {
 	.item1 {
-		height:260px;
+		height:300px;
 	}
 }
 
