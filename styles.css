@@ -136,7 +136,7 @@ a{
 
 @keyframes leftmove{
 	from {left:-300px;}
-	to {left:0px;}
+	to {left:0}
 }
 
 .logo-4,
@@ -220,7 +220,7 @@ main.container{
 }
 
 #bigBox{
-	background-color:#F0F3F7;
+	background-color:#f0f3f7;
 }
 
 aside{
@@ -251,7 +251,7 @@ article{
 	background-color:#ffffff;
 	opacity:0.8;
 	border-radius:5px;
-	box-shadow: 0 0 12px 0 hsla(0,0%,0% 0.2);
+	box-shadow: 0 0 6px 0 hsla(0,0%,0% 0.2);
 }
 
 .itemPic{
@@ -293,8 +293,9 @@ article{
 	font-weight:700;
 }
 
-.clearfix{
-	display: inline-block;
+.clearfix {
+	display: block;
+	height: 1%;
 }
 
 .clearfix:after {
@@ -305,12 +306,6 @@ article{
 	visibility: hidden;
 }
 
-* html .clearfix {
-	height: 1%;
-}
-.clearfix {
-	display: block;
-}
 /*Footer*/
 
 #foot{
