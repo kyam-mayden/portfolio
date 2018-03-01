@@ -222,9 +222,6 @@ aside{
 	margin:10px 5px 5px 5px;
 }
 
-.devTo h3{
-	text-align:center;
-}
 
 .smPort{
 	height:700px;
@@ -255,7 +252,7 @@ article{
 	margin:0 auto;
 }
 
-.PrimaryPFItem{
+.primaryPfItem{
 	width:65%;
 	height:250px;
 }
@@ -412,13 +409,13 @@ article{
 		top:-15px;
 	}
 
-	#portFolio .itemLrg{
+	#portfolio .itemLrg{
 		height:350px;
 	}
 }
 
 @media screen and (max-width:700px){
-	.PrimaryPFItem{
+	.primaryPfItem{
 		height:300px;
 	}
 }
