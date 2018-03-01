@@ -4,7 +4,7 @@
 }
 
 body{
-	min-width:550px;
+	min-width:400px;
 	background-color:#fffbf6;
 }
 /*Header and links*/
@@ -219,11 +219,15 @@ main.container{
 	overflow:auto;
 }
 
+#bigBox{
+	background-color:#F0F3F7;
+}
+
 aside{
 	float:right;
 	height:250px;
 	width:30%;
-	background-color:#ffffe6;
+	background-color:#ffffff;
 	opacity:0.8;
 	border-radius:5px;
 	border:2px solid #ffe6b3;
@@ -245,10 +249,10 @@ article{
 	margin:10px;
 	position:relative;
 	min-height:200px;
-	background-color:#ffffe6;
+	background-color:#ffffff;
 	opacity:0.8;
 	border-radius:5px;
-	border: 2px solid #ffe6b3;
+	box-shadow: 0 0 12px 0 hsla(0,0%,0% 0.2);
 }
 
 .itemPic{
