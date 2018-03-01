@@ -263,21 +263,13 @@ article{
 	margin:0 auto;
 }
 
-.item1{
+.PrimaryPFItem{
 	width:65%;
 	height:250px;
 }
 
-.item2 .itemPic{
+.secondaryPFItem .itemPic{
 	height:150px;
-}
-
-.item3{
-	height:250px;
-}
-
-.item3 .itemPic{
-	height:200px;
 }
 
 .itemText h3,
@@ -290,12 +282,6 @@ article{
 	bottom:0;
 }
 
-.item3 .itemText{
-	position:absolute;
-	bottom:0;
-	left:0px;
-}
-
 .smPort h1{
 	display:none;
 }
@@ -303,6 +289,8 @@ article{
 .blogs a{
 	font-weight:700;
 }
+
+
 
 /*Footer*/
 
@@ -345,7 +333,7 @@ article{
 		display:none;
 	}
 
-	.item1{
+	.PrimaryPFItem{
 		width:100%;
 		height:300px;
 	}
@@ -407,16 +395,16 @@ article{
 }
 
 @media screen and (min-width:1280px) {
-	.item2 .itemPic {
+	.secondaryPFItem .itemPic {
 		width:95%;
 		height:250px;
 	}
 
-	article {
+	article{
 		height:300px;
 	}
 
-	.itemText h3 {
+	.itemText h3{
 		font-size:2rem;
 	}
 
@@ -438,11 +426,14 @@ article{
 		top:-15px;
 	}
 
+	#portFolio .itemLrg{
+		height:350px;
+}
 
 }
 
 @media screen and (max-width:700px) {
-	.item1 {
+	.PrimaryPFItem {
 		height:300px;
 	}
 }
