@@ -146,7 +146,7 @@ a{
 
 @keyframes rightmove{
 	from {right:-300px;}
-	to {right:0px;}
+	to {right:0;}
 }
 
 .logo-3{
@@ -155,7 +155,7 @@ a{
 
 @keyframes topdown{
 	from {top:-600px;}
-	to {top:0px;}
+	to {top:0;}
 }
 
 .navLinks li a:hover{
@@ -293,6 +293,24 @@ article{
 	font-weight:700;
 }
 
+.clearfix{
+	display: inline-block;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+.clearfix {
+	display: block;
+}
 /*Footer*/
 
 #foot{
@@ -300,6 +318,8 @@ article{
 	border:3px solid #000000;
 	padding:5px;
 	margin-top:20px;
+	clear:both;
+	position:relative;
 }
 
 #email{
