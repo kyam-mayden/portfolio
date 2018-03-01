@@ -91,26 +91,15 @@ a{
 
 .buttonHolder{
 	height:100px;
-	position:relative;
-	top:60px;
-}
-
-.buttonHolder div{
-	width:30%;
-	height:100px;
-	background-color:#e6e6e6;
+	width:20%;
 	margin:0 auto;
 	position:relative;
+	top:60px;
+	text-align: center;
+	background-color:#e6e6e6;
 	opacity:0.7;
-	text-align:center;
 	border-radius:5px;
 	transition:background-color 2s;
-}
-
-.buttonHolder div h2{
-	text-align:center;
-	height:100%;
-	position:relative;
 }
 
 .buttonHolder div:hover{
@@ -129,8 +118,8 @@ a{
 	opacity:0.7;
 }
 
-.logo-1,
-.logo-2 {
+.logo-CSS,
+.logo-HTML {
 	animation:leftmove 2s;
 }
 
@@ -139,8 +128,8 @@ a{
 	to {left:0px;}
 }
 
-.logo-4,
-.logo-5{
+.logo-JS,
+.logo-CSM{
 	animation:rightmove 2s;
 }
 
@@ -149,7 +138,7 @@ a{
 	to {right:0px;}
 }
 
-.logo-3{
+.logo-PHP{
 	animation:topdown 2s;
 }
 
@@ -302,18 +291,17 @@ article{
 	margin-top:20px;
 }
 
-#email{
+.email{
 	float:left;
 	margin:0;
 }
 
-#phone{
+.phone{
 	float:right;
 	margin:0;
 }
 
 /*Media Queries*/
-
 
 @media screen and (max-width:1024px){
 	.itemPic{
@@ -370,7 +358,6 @@ article{
 		border:none;
 	}
 
-
 	.title{
 		width:75%;
 		float:left;
@@ -380,14 +367,12 @@ article{
 	h1{
 		font-size:3.5rem;
 	}
-
-
+	
 	main .smPort h1{
 		display:block;
 		text-align:center;
 		margin:0 auto;
 		font-size:2.5rem;
-
 	}
 
 	.logoBox{
