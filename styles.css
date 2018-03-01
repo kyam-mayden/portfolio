@@ -1,25 +1,26 @@
 *{
 	box-sizing:border-box;
+	font-family:Roboto, sans-serif;
 }
 
 body{
-	min-width:550px;
+	min-width:400px;
+	background-color:#fffbf6;
 }
 /*Header and links*/
 
 li{
-	list-style: none;
+	list-style:none;
 }
 
 a{
-	text-decoration: none;
+	text-decoration:none;
 	color:#000000;
 }
 
 .container{
 	position:relative;
-	width:90%;
-	border:5px solid #000000;
+	width:100%;
 	overflow:auto;
 	margin:0 auto;
 }
@@ -43,15 +44,20 @@ a{
 }
 
 .navLinks li a,
-.social a {
+.social a{
 	text-decoration:none;
 	color:#000000;
 	padding:3px;
+	transition: background-color 1s;
 }
 
+.social a,
+.navLinks ul li a{
+	animation:mymove 3s;
+}
 
 .title{
-	border:5px solid #000000;
+	border-radius:10px;
 	width:50%;
 	display:inline-block;
 	float:left;
@@ -59,6 +65,7 @@ a{
 	text-align:center;
 	z-index:5;
 	background-color:#ffffff;
+	border:2px solid black;
 }
 
 .social{
@@ -78,9 +85,8 @@ a{
 	height:700px;
 	margin-top:80px;
 	z-index:3;
-	background-size:cover;
-	background-repeat:no-repeat;
-	background: url("headImage.jpg") no-repeat;
+	background-size:contain;
+	background:url("background.jpg") no-repeat fixed center;
 }
 
 .buttonHolder{
@@ -92,18 +98,23 @@ a{
 .buttonHolder div{
 	width:30%;
 	height:100px;
-	background-color:gray;
+	background-color:#e6e6e6;
 	margin:0 auto;
 	position:relative;
 	opacity:0.7;
 	text-align:center;
+	border-radius:5px;
+	transition:background-color 2s;
 }
 
 .buttonHolder div h2{
 	text-align:center;
 	height:100%;
 	position:relative;
->>>>>>> responsive
+}
+
+.buttonHolder div:hover{
+	background-color:#999999;
 }
 
 .headImage h3{
@@ -111,12 +122,47 @@ a{
 	color:#ffffff;
 	bottom:0;
 	text-align:center;
-	border:2px solid #ffffff;
+	border-radius:5px;
 	margin:10px;
+	background-color:#36688d;
+	font-weight:200;
+	opacity:0.7;
+}
+
+.logo-1,
+.logo-2 {
+	animation:leftmove 2s;
+}
+
+@keyframes leftmove{
+	from {left:-300px;}
+	to {left:0px;}
+}
+
+.logo-4,
+.logo-5{
+	animation:rightmove 2s;
+}
+
+@keyframes rightmove{
+	from {right:-300px;}
+	to {right:0px;}
+}
+
+.logo-3{
+	animation:topdown 2s;
+}
+
+@keyframes topdown{
+	from {top:-600px;}
+	to {top:0px;}
 }
 
 .navLinks li a:hover{
-	border:2px solid #000000;
+	background-color:#000000;
+	border-radius:5px;
+	color:#ffffff;
+	opacity:0.7;
 }
 
 a[href="index.html"]{
@@ -153,6 +199,7 @@ a[href="index.html"]{
 }
 
 div[class^="logo-"]{
+	position:relative;
 	width:20%;
 	float:left;
 	height:100%;
@@ -168,16 +215,21 @@ div[class^="logo-"] img{
 /*content*/
 
 main.container{
-	min-height:1200px;
-	margin-top:20px;
+	min-height:800px;
 	overflow:auto;
+}
+
+#bigBox{
+	background-color:#F0F3F7;
 }
 
 aside{
 	float:right;
 	height:250px;
 	width:30%;
-	border:2px solid black;
+	background-color:#ffffff;
+	opacity:0.8;
+	border-radius:5px;
 	margin:10px 5px 5px 5px;
 }
 
@@ -186,7 +238,7 @@ aside{
 }
 
 .smPort{
-	height:900px;
+	height:700px;
 	width:95%;
 	margin:10px;
 }
@@ -194,9 +246,12 @@ aside{
 article{
 	width:100%;
 	margin:10px;
-	border:2px solid black;
 	position:relative;
 	min-height:200px;
+	background-color:#ffffff;
+	opacity:0.8;
+	border-radius:5px;
+	box-shadow: 0 0 12px 0 hsla(0,0%,0% 0.2);
 }
 
 .itemPic{
@@ -211,12 +266,12 @@ article{
 	margin:0 auto;
 }
 
-.item1{
+.PrimaryPFItem{
 	width:65%;
 	height:250px;
 }
 
-.item2 .itemPic{
+.secondaryPFItem .itemPic{
 	height:150px;
 }
 
@@ -230,31 +285,39 @@ article{
 	bottom:0;
 }
 
-
 .smPort h1{
 	display:none;
+}
+
+.blogs a{
+	font-weight:700;
 }
 
 /*Footer*/
 
 #foot{
-	height:100px;
+	height:50px;
 	border:3px solid #000000;
 	padding:5px;
 	margin-top:20px;
 }
 
+#email{
+	float:left;
+	margin:0;
+}
+
+#phone{
+	float:right;
+	margin:0;
+}
+
 /*Media Queries*/
 
-@media screen and (max-width:1250px){
-	.itemPic{
-		width:85%;
-	}
-}
 
 @media screen and (max-width:1024px){
 	.itemPic{
-		width:95%;
+		width:85%;
 	}
 }
 
@@ -271,7 +334,7 @@ article{
 		display:none;
 	}
 
-	.item1{
+	.PrimaryPFItem{
 		width:100%;
 		height:300px;
 	}
@@ -280,7 +343,7 @@ article{
 		height:230px;
 	}
 
-	.social {
+	.social{
 		display:none;
 	}
 
@@ -322,25 +385,27 @@ article{
 	main .smPort h1{
 		display:block;
 		text-align:center;
+		margin:0 auto;
+		font-size:2.5rem;
+
 	}
 
 	.logoBox{
 		display:none;
 	}
-
 }
 
 @media screen and (min-width:1280px) {
-	.item2 .itemPic {
+	.secondaryPFItem .itemPic {
 		width:95%;
 		height:250px;
 	}
 
-	article {
+	article{
 		height:300px;
 	}
 
-	.itemText h3 {
+	.itemText h3{
 		font-size:2rem;
 	}
 
@@ -353,7 +418,7 @@ article{
 	}
 
 	#bigBox{
-		height:1500px;
+		height:900px;
 	}
 
 	.social a{
@@ -362,17 +427,19 @@ article{
 		top:-15px;
 	}
 
-
-}
-
-@media screen and (max-width:700px) {
-	.item1 {
-		height:260px;
+	#portFolio .itemLrg{
+		height:350px;
 	}
 }
 
-@media screen and (max-width:600px) {
-	.itemPic {
+@media screen and (max-width:700px){
+	.PrimaryPFItem{
+		height:300px;
+	}
+}
+
+@media screen and (max-width:600px){
+	.itemPic{
 		width:100%;
 		height:230px;
 	}
