@@ -1,11 +1,11 @@
 *{
 	box-sizing:border-box;
-	font-family:Roboto, sans-serif;
 }
 
 body{
 	min-width:400px;
 	background-color:#fffbf6;
+	font-family:Roboto, sans-serif;
 }
 /*Header and links*/
 
@@ -26,7 +26,6 @@ a{
 }
 
 .container ul{
-	display:inline-block;
 	float:left;
 	width:25%;
 	padding:0;
@@ -34,19 +33,16 @@ a{
 
 .navLinks li,
 .social a{
-	display:inline-block;
 	margin:0 auto;
 	width:33.3%;
 	float:left;
 	text-align:center;
-	color:#000000;
 	border:2px solid #ffffff;
 }
 
 .navLinks li a,
 .social a{
 	text-decoration:none;
-	color:#000000;
 	padding:3px;
 	transition: background-color 1s;
 }
@@ -59,7 +55,6 @@ a{
 .title{
 	border-radius:10px;
 	width:50%;
-	display:inline-block;
 	float:left;
 	margin:10px 0 0 0;
 	text-align:center;
@@ -69,7 +64,6 @@ a{
 }
 
 .social{
-	display:inline-block;
 	float:right;
 	width:25%;
 }
@@ -80,7 +74,6 @@ a{
 	margin-top:50px;
 }
 
-.navlinks,
 .headImage{
 	height:700px;
 	margin-top:80px;
@@ -182,7 +175,6 @@ a[href="index.html"]{
 }
 
 .logoBox{
-	height:100px;
 	position:relative;
 	top:380px;
 }
@@ -191,8 +183,6 @@ div[class^="logo-"]{
 	position:relative;
 	width:20%;
 	float:left;
-	height:100%;
-	align-content:center;
 	padding:0 7%;
 }
 
@@ -257,7 +247,7 @@ article{
 	height:250px;
 }
 
-.secondaryPFItem .itemPic{
+.secondaryPfItem .itemPic{
 	height:150px;
 }
 
@@ -293,10 +283,6 @@ article{
 	margin:0;
 }
 
-.phone{
-	float:right;
-	margin:0;
-}
 
 /*Media Queries*/
 
@@ -319,7 +305,7 @@ article{
 		display:none;
 	}
 
-	.PrimaryPFItem{
+	.primaryPfItem{
 		width:100%;
 		height:300px;
 	}
@@ -378,7 +364,7 @@ article{
 }
 
 @media screen and (min-width:1280px) {
-	.secondaryPFItem .itemPic {
+	.secondaryPfItem .itemPic {
 		width:95%;
 		height:250px;
 	}
