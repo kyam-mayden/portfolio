@@ -95,7 +95,7 @@ a{
 	transition:background-color 2s;
 }
 
-.buttonHolder div:hover{
+.buttonHolder:hover{
 	background-color:#999999;
 }
 
