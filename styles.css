@@ -111,13 +111,14 @@ a{
 }
 
 .headImage h4{
-	bottom:50px;
-	font-size: 1.7rem;
+	bottom:70px;
+	font-size: 1.2rem;
+	width:100%;
+	margin:20px;
 }
 
 .headImage P{
 	bottom:0;
-	font-size: 1.1rem;
 }
 
 .logoForCSS,
@@ -425,9 +426,13 @@ article{
 	}
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:680px){
 	.itemPic{
 		width:100%;
 		height:230px;
+	}
+
+	#about{
+		margin-bottom:70px;
 	}
 }
