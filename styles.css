@@ -112,10 +112,12 @@ a{
 
 .headImage h4{
 	bottom:50px;
+	font-size: 1.7rem;
 }
 
 .headImage P{
 	bottom:0;
+	font-size: 1.1rem;
 }
 
 .logoForCSS,
