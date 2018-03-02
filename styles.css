@@ -99,16 +99,24 @@ a{
 	background-color:#999999;
 }
 
-.headImage h3{
+.headImage p,
+.headImage h4{
 	position:absolute;
 	color:#ffffff;
-	bottom:0;
 	text-align:center;
 	border-radius:5px;
 	margin:10px;
 	background-color:#36688d;
 	font-weight:200;
 	opacity:0.7;
+}
+
+.headImage h4{
+	bottom:50px;
+}
+
+.headImage P{
+	bottom:0;
 }
 
 .logo-CSS,
@@ -276,7 +284,6 @@ article{
 
 .clearfix:after {
 	content:".";
-	/*display:block;*/
 	height:0;
 	clear:both;
 	visibility:hidden;
@@ -296,7 +303,6 @@ article{
 	float:left;
 	margin:0;
 }
-
 
 /*Media Queries*/
 
