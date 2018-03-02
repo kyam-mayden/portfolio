@@ -118,7 +118,7 @@ a{
 
 @keyframes leftmove{
 	from {left:-300px;}
-	to {left:0px;}
+	to {left:0}
 }
 
 .logo-JS,
@@ -128,7 +128,7 @@ a{
 
 @keyframes rightmove{
 	from {right:-300px;}
-	to {right:0px;}
+	to {right:0;}
 }
 
 .logo-PHP{
@@ -137,7 +137,7 @@ a{
 
 @keyframes topdown{
 	from {top:-600px;}
-	to {top:0px;}
+	to {top:0;}
 }
 
 .navLinks li a:hover{
@@ -176,7 +176,7 @@ a[href="index.html"]{
 
 .logoBox{
 	position:relative;
-	top:380px;
+	top:360px;
 }
 
 div[class^="logo-"]{
@@ -199,7 +199,7 @@ main.container{
 }
 
 #bigBox{
-	background-color:#F0F3F7;
+	background-color:#f0f3f7;
 }
 
 aside{
@@ -227,7 +227,7 @@ article{
 	background-color:#ffffff;
 	opacity:0.8;
 	border-radius:5px;
-	box-shadow: 0 0 12px 0 hsla(0,0%,0% 0.2);
+	box-shadow: 0 0 6px 0 hsla(0,0%,0% 0.2);
 }
 
 .itemPic{
@@ -269,13 +269,27 @@ article{
 	font-weight:700;
 }
 
+.clearfix {
+	display:block;
+	height:1%;
+}
+
+.clearfix:after {
+	content:".";
+	/*display:block;*/
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
 /*Footer*/
 
 #foot{
 	height:50px;
 	border:3px solid #000000;
 	padding:5px;
-	margin-top:20px;
+	clear:both;
+	position:relative;
 }
 
 .email{
