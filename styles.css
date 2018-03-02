@@ -118,8 +118,8 @@ a{
 	bottom:0;
 }
 
-.logo-CSS,
-.logo-HTML {
+.logoForCSS,
+.logoForHTML {
 	animation:leftmove 2s;
 }
 
@@ -128,8 +128,8 @@ a{
 	to {left:0}
 }
 
-.logo-JS,
-.logo-CSM{
+.logoForJS,
+.logoForCSM{
 	animation:rightmove 2s;
 }
 
@@ -138,7 +138,7 @@ a{
 	to {right:0;}
 }
 
-.logo-PHP{
+.logoForPHP{
 	animation:topdown 2s;
 }
 
@@ -186,14 +186,14 @@ a[href="index.html"]{
 	top:360px;
 }
 
-div[class^="logo-"]{
+div[class^="logoFor"]{
 	position:relative;
 	width:20%;
 	float:left;
 	padding:0 7%;
 }
 
-div[class^="logo-"] img{
+div[class^="logoFor"] img{
 	margin:0 auto;
 	height:100px;
 }
