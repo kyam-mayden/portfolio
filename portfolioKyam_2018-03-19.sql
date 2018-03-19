@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.39)
 # Database: portfolioKyam
-# Generation Time: 2018-03-19 13:23:48 +0000
+# Generation Time: 2018-03-19 13:45:40 +0000
 # ************************************************************
 
 
@@ -20,10 +20,52 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table staticContent
+# Dump of table articles
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `staticContent`;
+CREATE TABLE `articles` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(40) NOT NULL DEFAULT '',
+  `description` varchar(256) NOT NULL DEFAULT '',
+  `deleted` tinyint(1) unsigned zerofill DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title` (`title`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table images
+# ------------------------------------------------------------
+
+CREATE TABLE `images` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `url` varchar(400) NOT NULL DEFAULT '',
+  `deleted` tinyint(1) unsigned zerofill DEFAULT NULL,
+  `altText` varchar(200) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table portfolioItems
+# ------------------------------------------------------------
+
+CREATE TABLE `portfolioItems` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(40) NOT NULL DEFAULT '',
+  `description` text NOT NULL,
+  `imgRef` int(11) unsigned DEFAULT NULL,
+  `deleted` tinyint(1) unsigned zerofill DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title` (`title`),
+  KEY `imgRef` (`imgRef`),
+  CONSTRAINT `portfolioItems_ibfk_1` FOREIGN KEY (`imgRef`) REFERENCES `images` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table staticContent
+# ------------------------------------------------------------
 
 CREATE TABLE `staticContent` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
