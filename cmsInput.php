@@ -1,3 +1,34 @@
+<?php
+$db = new PDO('mysql:host=127.0.0.1; dbname=portfolioKyam', 'root');
+$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+$query=$db->prepare("SELECT `name`,`content` FROM `staticContent`;");
+$query->execute();
+$aboutSection=$query->fetchall();
+$mainSub=$aboutSection[2]['content'];
+$about1=$aboutSection[0]['content'];
+$about2=$aboutSection[1]['content'];
+$email=$aboutSection[3]['content'];
+
+$query=$db->prepare("SELECT `id`,`title` FROM `portfolioItems`;");
+$query->execute();
+$pfItems=$query->fetchall();
+
+$query=$db->prepare("SELECT `title` FROM `articles`");
+$query->execute();
+$artItems=$query->fetchall();
+
+
+
+function makeDropDown($items){
+    $resultString = "";
+    foreach ($items as $item) {
+        $resultString .= '<option value="' . $item['title'] . '">' . $item['title'] . '</option>';
+    }
+    echo $resultString;
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,22 +42,22 @@
         <h2>About me</h2>
         <form method="POST" action="cmsInput.php">
          <label for="subtitle">Subtitle</label>
-            <input type="text" name="subtitle" value="placeholder">
+            <input type="text" name="subtitle" value="<?php echo $mainSub; ?> ">
             <input type="submit">
         </form>
         <form method="POST" action="cmsInput.php">
             <label for="aboutMe1">About me 1</label>
-            <textarea name="aboutme1" type="text" cols="60" rows="8">placeholder</textarea>
+            <textarea name="aboutme1" type="text" cols="60" rows="6"> <?php echo $about1; ?> </textarea>
             <input type="submit">
         </form>
         <form method="POST" action="cmsInput.php">
             <label for="aboutMe2">aboutMe2</label>
-            <textarea name="aboutMe2" type="text" cols="60" rows="8">placeholder</textarea>
+            <textarea name="aboutMe2" type="text" cols="60" rows="6"> <?php echo $about2; ?></textarea>
             <input type="submit">
         </form>
         <form method="POST" action="cmsInput.php">
             <label for="email">email</label>
-            <input type="text" name="aboutMe2" value="email">
+            <input type="text" name="aboutMe2" value="<?php echo $email; ?>">
             <input type="submit">
         </form>
     </main>
@@ -37,7 +68,7 @@
             <form method="POST" action="cmsInput.php">
                 <label for="itemSelect">Select item</label>
                 <select name="itemSelect">
-                    <?php echo 'Dropdown List' ?>
+                    <?php echo makeDropDown($pfItems) ?>
                 </select>
                 <input type="submit" value="get">
             </form>
@@ -83,7 +114,7 @@
         <div class="delete">
             <h3>Delete</h3>
             <select name="itemDelete">
-                <?php echo 'Dropdown List' ?>
+                <?php echo makeDropDown($pfItems) ?>
             </select>
             <input type="submit" value="Delete">
         </div>
@@ -95,7 +126,7 @@
             <form method="POST" action="cmsInput.php">
                 <label for="itemSelect">Select item</label>
                 <select name="itemSelect">
-                    <?php echo 'Dropdown List' ?>
+                    <?php echo makeDropDown($artItems) ?>
                 </select>
                 <input type="submit" value="get">
             </form>
@@ -130,11 +161,10 @@
         <div class="delete">
             <h3>Delete</h3>
             <select name="artdelete">
-                <?php echo 'Dropdown List' ?>
+                <?php echo makeDropDown($artItems) ?>
             </select>
             <input type="submit" value="Delete">
         </div>
     </main>
 </body>
 </html>
-<?php
