@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.39)
 # Database: portfolioKyam
-# Generation Time: 2018-03-19 12:10:40 +0000
+# Generation Time: 2018-03-19 13:23:48 +0000
 # ************************************************************
 
 
@@ -20,50 +20,10 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table articles
-# ------------------------------------------------------------
-
-CREATE TABLE `articles` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `title` int(11) NOT NULL,
-  `description` int(11) NOT NULL,
-  `deleted` int(11) unsigned zerofill DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `title` (`title`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-# Dump of table images
-# ------------------------------------------------------------
-
-CREATE TABLE `images` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `url` int(11) NOT NULL,
-  `deleted` tinyint(1) unsigned zerofill DEFAULT NULL,
-  `altText` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-# Dump of table portfolioItems
-# ------------------------------------------------------------
-
-CREATE TABLE `portfolioItems` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(11) NOT NULL DEFAULT '',
-  `description` text NOT NULL,
-  `imgRef` int(11) DEFAULT NULL,
-  `deleted` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `title` (`title`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
 # Dump of table staticContent
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `staticContent`;
 
 CREATE TABLE `staticContent` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
