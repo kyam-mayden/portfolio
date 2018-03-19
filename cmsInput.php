@@ -18,8 +18,6 @@ $query=$db->prepare("SELECT `title` FROM `articles`");
 $query->execute();
 $artItems=$query->fetchall();
 
-
-
 function makeDropDown($items){
     $resultString = "";
     foreach ($items as $item) {
@@ -27,6 +25,19 @@ function makeDropDown($items){
     }
     echo $resultString;
 }
+
+$selectedItem=$_POST['itemSelect'];
+
+var_dump($selectedItem);
+
+$query=$db->prepare("SELECT `id`,`title`,`description`,`imgRef`,`projURL`,`github` 
+                               FROM `portfolioItems`
+                               WHERE `title`=`$selectedItem`;");
+$query->execute();
+$resultArray=$query->fetchall();
+var_dump($resultArray);
+
+
 
 ?>
 <!DOCTYPE html>
@@ -96,16 +107,16 @@ function makeDropDown($items){
             <h3>Add</h3>
             <form method="POST" action="cmsInput.php">
                 <label for="pfTitle">Portfolio Item title </label>
-                <input type="text" name="pfTitle" value="placeholder">
+                <input type="text" name="pfTitle" placeholder="Enter new item name here">
                 <br>
                 <label for="pfDesc">Portfolio Item description </label>
-                <textarea name="pfDesc" type="text" cols="60" rows="8">placeholder</textarea>
+                <textarea name="pfDesc" type="text" cols="60" rows="8" placeholder="Enter your description here"></textarea>
                 <br>
                 <label for="pfURL">Item URL</label>
-                <input type="text" name="pfURL" value="placeholder">
+                <input type="text" name="pfURL" placeholder="Enter new item URL here">
                 <br>
                 <label for="githubURL">github URL</label>
-                <input type="text" name="githubURL" value="placeholder">
+                <input type="text" name="githubURL" placeholder="Enter new item repo URL here">
                 <br>
                 <label for="picSelect">Add picture</label>
                 <input type="submit">
@@ -147,13 +158,13 @@ function makeDropDown($items){
             <h3>Add</h3>
             <form method="POST" action="cmsInput.php">
                 <label for="artTitle">Portfolio Item title </label>
-                <input type="text" name="artTitle" value="placeholder">
+                <input type="text" name="artTitle" placeholder="Enter new article title">
                 <br>
                 <label for="artDesc">Portfolio Item description </label>
-                <textarea name="artDesc" type="text" cols="60" rows="8">placeholder</textarea>
+                <textarea name="artDesc" type="text" cols="60" rows="8" placeholder="Enter new article description"></textarea>
                 <br>
-                <label for="pfURL">Item URL</label>
-                <input type="text" name="pfURL" value="placeholder">
+                <label for="artURL">Item URL</label>
+                <input type="text" name="artURL" placeholder="Enter new article URL">
                 <br>
                 <input type="submit">
             </form>
