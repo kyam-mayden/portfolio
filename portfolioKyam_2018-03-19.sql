@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.39)
 # Database: portfolioKyam
-# Generation Time: 2018-03-19 13:45:40 +0000
+# Generation Time: 2018-03-19 13:47:53 +0000
 # ************************************************************
 
 
@@ -40,8 +40,8 @@ CREATE TABLE `articles` (
 CREATE TABLE `images` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `url` varchar(400) NOT NULL DEFAULT '',
+  `altText` varchar(200) NOT NULL,
   `deleted` tinyint(1) unsigned zerofill DEFAULT NULL,
-  `altText` varchar(200) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -69,8 +69,8 @@ CREATE TABLE `portfolioItems` (
 
 CREATE TABLE `staticContent` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
-  `content` text,
+  `name` varchar(20) NOT NULL DEFAULT '',
+  `content` varchar(400) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
