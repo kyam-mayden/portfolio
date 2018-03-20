@@ -1,44 +1,6 @@
 <?php
-$db = new PDO('mysql:host=127.0.0.1; dbname=portfolioKyam', 'root');
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-$query=$db->prepare("SELECT `name`,`content` FROM `staticContent`;");
-$query->execute();
-$aboutSection=$query->fetchall();
-$mainSub=$aboutSection[2]['content'];
-$about1=$aboutSection[0]['content'];
-$about2=$aboutSection[1]['content'];
-$email=$aboutSection[3]['content'];
-
-$query=$db->prepare("SELECT `id`,`title` FROM `portfolioItems`;");
-$query->execute();
-$pfItems=$query->fetchall();
-
-$query=$db->prepare("SELECT `title` FROM `articles`");
-$query->execute();
-$artItems=$query->fetchall();
-
-function makeDropDown($items){
-    $resultString = "";
-    foreach ($items as $item) {
-        $resultString .= '<option value="' . $item['title'] . '">' . $item['title'] . '</option>';
-    }
-    echo $resultString;
-}
-
-$selectedItem=$_POST['itemSelect'];
-
-var_dump($selectedItem);
-
-$query=$db->prepare("SELECT `id`,`title`,`description`,`imgRef`,`projURL`,`github` 
-                               FROM `portfolioItems`
-                               WHERE `title`=`$selectedItem`;");
-$query->execute();
-$resultArray=$query->fetchall();
-var_dump($resultArray);
-
-
-
+require('cmsController.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,23 +14,24 @@ var_dump($resultArray);
     <main id="about">
         <h2>About me</h2>
         <form method="POST" action="cmsInput.php">
-         <label for="subtitle">Subtitle</label>
+            <label for="artSelect">Select item</label>
+            <select name="artSelect">
+                <?php echo makeDropDown($aboutItems) ?>
+            </select>
+
+
+            <label for="subtitle">Subtitle</label>
             <input type="text" name="subtitle" value="<?php echo $mainSub; ?> ">
-            <input type="submit">
-        </form>
-        <form method="POST" action="cmsInput.php">
-            <label for="aboutMe1">About me 1</label>
-            <textarea name="aboutme1" type="text" cols="60" rows="6"> <?php echo $about1; ?> </textarea>
-            <input type="submit">
-        </form>
-        <form method="POST" action="cmsInput.php">
-            <label for="aboutMe2">aboutMe2</label>
-            <textarea name="aboutMe2" type="text" cols="60" rows="6"> <?php echo $about2; ?></textarea>
-            <input type="submit">
-        </form>
-        <form method="POST" action="cmsInput.php">
+            <br>
+            <label for="about1">About me 1</label>
+            <textarea name="about1" type="text" cols="60" rows="6"> <?php echo $about1; ?> </textarea>
+            <br>
+            <label for="about2">aboutMe2</label>
+            <textarea name="about2" type="text" cols="60" rows="6"> <?php echo $about2; ?></textarea>
+            <br>
             <label for="email">email</label>
-            <input type="text" name="aboutMe2" value="<?php echo $email; ?>">
+            <input type="text" name="email" value="<?php echo $email; ?>">
+            <br>
             <input type="submit">
         </form>
     </main>
@@ -85,16 +48,16 @@ var_dump($resultArray);
             </form>
             <form method="POST" action="cmsInput.php">
                 <label for="pfTitle">Portfolio Item title </label>
-                <input type="text" name="pfTitle" value="placeholder">
+                <input type="text" name="pfTitle" value="<?php echo $wantedPfItem[0]['title']; ?>">
                 <br>
                 <label for="pfDesc">Portfolio Item description </label>
-                <textarea name="pfDesc" type="text" cols="60" rows="8">placeholder</textarea>
+                <textarea name="pfDesc" type="text" cols="60" rows="8"><?php echo $wantedPfItem[0]['description']; ?></textarea>
                 <br>
                 <label for="pfURL">Item URL</label>
-                <input type="text" name="pfURL" value="placeholder">
+                <input type="text" name="pfURL" value="<?php echo $wantedPfItem[0]['projURL']; ?>">
                 <br>
                 <label for="githubURL">github URL</label>
-                <input type="text" name="githubURL" value="placeholder">
+                <input type="text" name="githubURL" value="<?php echo $wantedPfItem[0]['github']; ?>">
                 <br>
                 <label for="picSelect">Select picture</label>
                 <select name="picSelect">
@@ -106,6 +69,11 @@ var_dump($resultArray);
         <div class="add">
             <h3>Add</h3>
             <form method="POST" action="cmsInput.php">
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                    Select image to upload:
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="submit" value="Upload Image" name="submit">
+                </form>
                 <label for="pfTitle">Portfolio Item title </label>
                 <input type="text" name="pfTitle" placeholder="Enter new item name here">
                 <br>
@@ -118,7 +86,7 @@ var_dump($resultArray);
                 <label for="githubURL">github URL</label>
                 <input type="text" name="githubURL" placeholder="Enter new item repo URL here">
                 <br>
-                <label for="picSelect">Add picture</label>
+
                 <input type="submit">
             </form>
         </div>
@@ -135,21 +103,21 @@ var_dump($resultArray);
         <div>
             <h3>Edit</h3>
             <form method="POST" action="cmsInput.php">
-                <label for="itemSelect">Select item</label>
-                <select name="itemSelect">
+                <label for="artSelect">Select item</label>
+                <select name="artSelect">
                     <?php echo makeDropDown($artItems) ?>
                 </select>
                 <input type="submit" value="get">
             </form>
             <form method="POST" action="cmsInput.php">
                 <label for="artTitle">Article title </label>
-                <input type="text" name="artTitle" value="placeholder">
+                <input type="text" name="artTitle" value="<?php echo $wantedArt[0]['title']; ?>">
                 <br>
                 <label for="artDesc">Article description </label>
-                <textarea name="artDesc" type="text" cols="60" rows="8">placeholder</textarea>
+                <textarea name="artDesc" type="text" cols="60" rows="8"><?php echo $wantedArt[0]['description']; ?></textarea>
                 <br>
                 <label for="artURL">Article URL</label>
-                <input type="text" name="artURL" value="placeholder">
+                <input type="text" name="artURL" value="<?php echo $wantedArt[0]['URL']; ?>">
                 <br>
                 <input type="submit">
             </form>
