@@ -14,25 +14,19 @@ require('cmsController.php');
     <main id="about">
         <h2>About me</h2>
         <form method="POST" action="cmsInput.php">
-            <label for="artSelect">Select item</label>
-            <select name="artSelect">
-                <?php echo makeDropDown($aboutItems) ?>
-            </select>
-
-
             <label for="subtitle">Subtitle</label>
-            <input type="text" name="subtitle" value="<?php echo $mainSub; ?> ">
+            <input type="text" name="subtitle" value="<?php echo "$mainSub"; ?> ">
             <br>
             <label for="about1">About me 1</label>
-            <textarea name="about1" type="text" cols="60" rows="6"> <?php echo $about1; ?> </textarea>
+            <textarea name="about1" type="text" cols="60" rows="6"> <?php echo"$about1"; ?> </textarea>
             <br>
             <label for="about2">aboutMe2</label>
-            <textarea name="about2" type="text" cols="60" rows="6"> <?php echo $about2; ?></textarea>
+            <textarea name="about2" type="text" cols="60" rows="6"> <?php echo"$about2"; ?></textarea>
             <br>
             <label for="email">email</label>
-            <input type="text" name="email" value="<?php echo $email; ?>">
+            <input type="text" name="email" value="<?php echo "$email"; ?>">
             <br>
-            <input type="submit">
+            <input type="submit" name="submitAbout" id="submitAbout">
         </form>
     </main>
     <main id="portfolio">
@@ -48,22 +42,20 @@ require('cmsController.php');
             </form>
             <form method="POST" action="cmsInput.php">
                 <label for="pfTitle">Portfolio Item title </label>
-                <input type="text" name="pfTitle" value="<?php echo $wantedPfItem[0]['title']; ?>">
+                <input type="text" name="pfTitle" value="<?php echo$wantedPfItem[0]['title']; ?>">
                 <br>
                 <label for="pfDesc">Portfolio Item description </label>
-                <textarea name="pfDesc" type="text" cols="60" rows="8"><?php echo $wantedPfItem[0]['description']; ?></textarea>
+                <textarea name="pfDesc" type="text" cols="60" rows="8"><?php echo$wantedPfItem[0]['description']; ?></textarea>
                 <br>
                 <label for="pfURL">Item URL</label>
-                <input type="text" name="pfURL" value="<?php echo $wantedPfItem[0]['projURL']; ?>">
+                <input type="text" name="pfURL" value="<?php echo$wantedPfItem[0]['projURL']; ?>">
                 <br>
                 <label for="githubURL">github URL</label>
-                <input type="text" name="githubURL" value="<?php echo $wantedPfItem[0]['github']; ?>">
+                <input type="text" name="githubURL" value="<?php echo$wantedPfItem[0]['github']; ?>">
                 <br>
                 <label for="picSelect">Select picture</label>
-                <select name="picSelect">
-                    <?php echo 'Dropdown List' ?>
-                </select>
-                <input type="submit">
+                <input type="text" name="picRef" value="<?php echo$wantedPfItem[0]['URL']; ?>">
+                <input type="submit" name="submitPf" if="submitPf">
                 </form>
             </div>
         <div class="add">
