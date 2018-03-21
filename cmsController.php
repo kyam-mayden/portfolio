@@ -174,18 +174,3 @@ function DeleteArticle($postData, $db) {
         $query->execute();
     }
 }
-
-DeleteArticle($_POST,$db);
-UpdateArticle($_POST,$db);
-deletePfItem($_POST,$db);
-updatePortfolio($_POST,$db);
-updateAbout($_POST,$db);
-$wantedArt= SelectArt($db,$_POST);
-$artItems=ArticleList($db);
-$wantedPfItem = portfolioFill($db,$_POST);
-$pfItems=portfolioList($db);
-$aboutSection=FillAbout($db);
-$mainSub=$aboutSection[0]['content'];
-$about1=$aboutSection[3]['content'];
-$about2=$aboutSection[2]['content'];
-$email=$aboutSection[1]['content'];

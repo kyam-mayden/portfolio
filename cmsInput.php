@@ -1,6 +1,20 @@
 <?php
 
 require_once('cmsController.php');
+DeleteArticle($_POST,$db);
+UpdateArticle($_POST,$db);
+deletePfItem($_POST,$db);
+updatePortfolio($_POST,$db);
+updateAbout($_POST,$db);
+$wantedArt= SelectArt($db,$_POST);
+$artItems=ArticleList($db);
+$wantedPfItem = portfolioFill($db,$_POST);
+$pfItems=portfolioList($db);
+$aboutSection=FillAbout($db);
+$mainSub=$aboutSection[0]['content'];
+$about1=$aboutSection[3]['content'];
+$about2=$aboutSection[2]['content'];
+$email=$aboutSection[1]['content'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +32,7 @@ require_once('cmsController.php');
             <input type="text" name="subtitle" value="<?php echo "$mainSub"; ?> ">
             <br>
             <label for="about1">About me 1</label>
-            <textarea name="about1" type="text" cols="60" rows="6"> <?php echo"$about1"; ?> </textarea>
+            <textarea name="about1" type="text" cols="60" rows="6"> <?php echo"$about1"; ?></textarea>
             <br>
             <label for="about2">aboutMe2</label>
             <textarea name="about2" type="text" cols="60" rows="6"> <?php echo"$about2"; ?></textarea>
