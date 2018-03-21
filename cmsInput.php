@@ -55,7 +55,7 @@ require_once('cmsController.php');
                 <br>
                 <label for="picSelect">Select picture</label>
                 <select name="picSelect">
-                    <?php echo makeImgDropDown() ?>
+                    <?php echo makeImgDropDown($db) ?>
                 </select>
                 <input type="submit" name="submitPf" if="submitPf">
                 </form>
@@ -77,7 +77,7 @@ require_once('cmsController.php');
                 <br>
                 <label for="picSelect">Select picture</label>
                 <select name="picSelect">
-                    <?php echo makeImgDropDown() ?>
+                    <?php echo makeImgDropDown($db) ?>
                 </select>
 
                 <input type="submit" name="submitPf" if="submitPf">
@@ -134,9 +134,10 @@ require_once('cmsController.php');
         </div>
         <div class="delete">
             <h3>Delete</h3>
-            <select name="artdelete">
-                <?php echo makeDropDown($artItems) ?>
-            </select>
+            <form method="POST" action="cmsInput.php">
+                <select name="artDelete">
+                    <?php echo makeDropDown($artItems) ?>
+                </select>
             <input type="submit" value="Delete">
         </div>
     </main>
