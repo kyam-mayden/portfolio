@@ -25,7 +25,7 @@ $abouts=FillAbout($db);
 			</ul>
 			<div class="title">
 				<h1>Kyam Harris</h1>
-				<h4>Somerset based Web Developer</h4>
+				<h4><?php echo $abouts[0]['content']?></h4>
 			</div>
 			<section class="social">
 				<a href="https://twitter.com/KyamLeigh" target="_blank" class="twitter"></a>
@@ -38,17 +38,9 @@ $abouts=FillAbout($db);
 						<h2>View Portfolio</h2>
 					</a>
 				</div>
-				<h4 id="about">My name is Kyam Harris, a father of two from
-					Somerset currently training to become a Full Stack Web
-					Developer with Mayden Academy.
-					I’ve spent my whole career in Customer Service, but recently
-					discovered that I enjoyed using computers to solve problems
-					at work and, after tinkering with Python, that I enjoy programming!
+				<h4 id="about"><?php echo $abouts[2]['content']?>
 				</h4>
-				<p>
-					I have been accepted to join Mayden Academy for 16 weeks to
-					learn HTML, CSS, Javascript and PHP, but more importantly to
-					think and code like a true programmer.
+				<p><?php echo $abouts[3]['content']?>
 				</p>
 				<div class="logoBox">
 					<div class="logoForCSS"><img src="CSS3.png" alt="css logo"/></div>
@@ -123,7 +115,7 @@ $abouts=FillAbout($db);
 		</div>
 	</main>
 	<footer class="container" id="foot">
-		<h4 class="email">email: kyam.lh@googlemail.com</h4>
+		<h4 class="email"><?php echo $abouts[1]['content']?></h4>
 	</footer>
 </body>
 </html>

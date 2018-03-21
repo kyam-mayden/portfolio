@@ -8,7 +8,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
  * @param $db to select from
  * @return assoc array of about sections and content
  */
-function FillAbout ($db): {
+function FillAbout ($db) {
     $query=$db->prepare("SELECT `name`,`content` FROM `staticContent` WHERE `name` != 'submitAbout' ORDER BY `name` DESC;");
     $query->execute();
     return $query->fetchall();
@@ -32,7 +32,7 @@ function portfolioList ($db) {
  * @param $items
  * @return string of options
  */
-function makeDropDown ($items): {
+function makeDropDown ($items) {
     $resultString = "";
     foreach ($items as $item) {
         $resultString .= '<option value="' . $item['title'] . '">' . $item['title'] . '</option>';
