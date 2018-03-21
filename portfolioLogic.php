@@ -25,12 +25,40 @@ function createFirstPfItem($db) {
 			</article>";
 }
 
-$query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`images`.`url`,`images`.`altText` 
-                         FROM `portfolioItems` 
+function createNonFirstPfItem($db) {
+    $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText`
+                         FROM `portfolioItems`
                          LEFT JOIN `images`
                          ON `portfolioItems`.`imgRef`
                          =`images`.`id`
-                         WHERE `portfolioItems`.`deleted` !=1 LIMIT 1;");
+                         WHERE `portfolioItems`.`deleted` !=1  LIMIT 100 offset 1;"); //limit set as needed offset
+    $query->execute();
+    $result= $query->fetchAll();
+    foreach($result as $result) {
+        echo "<article class='secondaryPfItem'>
+				    <section class='itemPic'>
+					    <img src=" . $result['url'] . " alt=" . $result['altText'] . "/>
+				    </section>
+				    <section class='itemText'>
+					    <h3>
+						    <a href='#'>" . $result['title'] . "</a>
+					    </h3>
+					    <p>" . $result['description'] . "
+				    </section>
+			    </article>";
+    }
+}
 
-$query->execute();
-$result= $query->fetchAll();
+//createNonFirstPfItem($db);
+
+
+//$query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText`
+//                         FROM `portfolioItems`
+//                         LEFT JOIN `images`
+//                         ON `portfolioItems`.`imgRef`
+//                         =`images`.`id`
+//                         WHERE `portfolioItems`.`deleted` !=1  LIMIT 100 offset 1;"); //limit set as needed offset
+//$query->execute();
+//$result= $query->fetchAll();
+
+//var_dump($result[0]);
