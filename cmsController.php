@@ -4,6 +4,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 /**
  * Gets about sections name, content from Db and turns into an array
+ *
  * @param $db to select from
  * @return assoc array of about sections and content
  */
@@ -15,6 +16,7 @@ function FillAbout ($db): {
 
 /**
  * Gets portfolio items names from DB and turns into an array
+ *
  * @param $db to select from
  * @return assoc array of pf item names
  */
@@ -26,6 +28,7 @@ function portfolioList ($db) {
 
 /**
  * Takes an array of $items and turns into a string to make a drop-down list
+ *
  * @param $items
  * @return string of options
  */
@@ -39,6 +42,7 @@ function makeDropDown ($items): {
 
 /**
  * Takes selected item POSTdata and selects values from DB based on POST value
+ *
  * @param $db to select from
  * @param $postData user response for item to select
  * @return array of item values
@@ -57,6 +61,7 @@ function portFolioFill ($db, $postData) {
 
 /**
  * Gets list of articles from DB
+ *
  * @param $db to select from
  * @return array of articles
  */
@@ -68,6 +73,7 @@ function ArticleList ($db) {
 
 /**
  * Takes selected article POSTdata and selects values from DB based on POST value
+ *
  * @param $db to select from
  * @param $postData user response for article to select
  * @return array
@@ -83,6 +89,7 @@ function SelectArt ($db, $postData) {
 
 /**
  * Updates About sections on DB
+ *
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
@@ -97,6 +104,7 @@ function updateAbout ($postData, $db) {
 
 /**
  * Updates/adds Portfolio item based on Name
+ *
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
@@ -115,6 +123,7 @@ function updatePortfolio ($postData, $db) {
 
 /**
  * Takes list of Image names from DB and returns as a string
+ *
  * @param $db to select from
  * @return string of options w/ values
  */
@@ -131,6 +140,7 @@ function makeImgDropDown ($db) {
 
 /**
  * Updates the DB with deleted flag for selected portfolio item
+ *
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to amend
  */
@@ -142,7 +152,8 @@ function deletePfItem ($postData, $db) {
     }
 }
 
-/** Updates
+/** Updates/adds Article based on name
+ *
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
@@ -159,6 +170,7 @@ function UpdateArticle ($postData, $db) {
 
 /**
  * Updates the DB with a deleted flag for selected Article item
+ *
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to amend
  */

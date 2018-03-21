@@ -93,7 +93,6 @@ $email=$aboutSection[1]['content'];
                 <select name="picSelect">
                     <?php echo makeImgDropDown($db) ?>
                 </select>
-
                 <input type="submit" name="submitPf" if="submitPf">
             </form>
         </div>

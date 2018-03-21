@@ -34,5 +34,4 @@ class StackTest extends TestCase
         $this->expectException(TypeError::class);
         makeDropDown($input1);
     }
-
 }
