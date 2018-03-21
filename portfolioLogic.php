@@ -41,7 +41,7 @@ function createNonFirstPfItem($db) {
 				    </section>
 				    <section class='itemText'>
 					    <h3>
-						    <a href='#'>" . $result['title'] . "</a>
+						    <a href='" . $result['projURL'] . "'>" . $result['title'] . "</a>
 					    </h3>
 					    <p>" . $result['description'] . "
 				    </section>
@@ -50,5 +50,19 @@ function createNonFirstPfItem($db) {
 }
 
 function createArticles($db) {
-    $query=$db->prepare
+    $query=$db->prepare("SELECT `title`,`description`,`url` FROM `articles`;");
+    $query->execute();
+    $result=$query->fetchAll();
+    foreach($result as $result){
+        echo "<div class=\'blogs\'>
+				<a href='" . $result['url'] . "'>" . $result['description'] . "</a>
+				<p>" . $result['title'] . "</p>
+			</div>";
+    }
 }
+
+$query=$db->prepare("SELECT `title`,`description`,`url` FROM `articles`;");
+$query->execute();
+$result=$query->fetchAll();
+
+var_dump($result);
