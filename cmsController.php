@@ -2,13 +2,12 @@
 $db = new PDO('mysql:host=127.0.0.1; dbname=portfolioKyam', 'root');
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-
 /**
  * Gets about sections name, content from Db and turns into an array
  * @param $db to select from
  * @return assoc array of about sections and content
  */
-function FillAbout($db) {
+function FillAbout ($db): {
     $query=$db->prepare("SELECT `name`,`content` FROM `staticContent` WHERE `name` != 'submitAbout' ORDER BY `name` DESC;");
     $query->execute();
     return $query->fetchall();
@@ -19,7 +18,7 @@ function FillAbout($db) {
  * @param $db to select from
  * @return assoc array of pf item names
  */
-function portfolioList($db) {
+function portfolioList ($db) {
     $query=$db->prepare("SELECT `title` FROM `portfolioItems` WHERE `deleted`!=1;");
     $query->execute();
     return $query->fetchall();
@@ -30,7 +29,7 @@ function portfolioList($db) {
  * @param $items
  * @return string of options
  */
-function makeDropDown($items){
+function makeDropDown ($items): {
     $resultString = "";
     foreach ($items as $item) {
         $resultString .= '<option value="' . $item['title'] . '">' . $item['title'] . '</option>';
@@ -44,7 +43,7 @@ function makeDropDown($items){
  * @param $postData user response for item to select
  * @return array of item values
  */
-function portFolioFill($db, $postData) {
+function portFolioFill ($db, $postData) {
     $selectedItem=$postData['itemSelect'];
     $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`projURL`,`github`,`images`.`URL`
                                FROM `portfolioItems`
@@ -61,7 +60,7 @@ function portFolioFill($db, $postData) {
  * @param $db to select from
  * @return array of articles
  */
-function ArticleList($db) {
+function ArticleList ($db) {
     $query=$db->prepare("SELECT `title` FROM `articles` WHERE `deleted`!=1 ");
     $query->execute();
     return $query->fetchall();
@@ -73,7 +72,7 @@ function ArticleList($db) {
  * @param $postData user response for article to select
  * @return array
  */
-function SelectArt($db, $postData){
+function SelectArt ($db, $postData) {
     $artSelect = $postData['artSelect'];
     $query = $db->prepare("SELECT `id`,`title`,`description`, `URL`
                                FROM `articles`
@@ -87,7 +86,7 @@ function SelectArt($db, $postData){
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
-function updateAbout($postData, $db) {
+function updateAbout ($postData, $db) {
     if(array_key_exists('submitAbout',$postData)) {
         foreach($postData as $keys=>$values) {
             $query = $db->prepare("REPLACE INTO `staticContent`(`name`,`content`) VALUES (?,?)");
@@ -101,7 +100,7 @@ function updateAbout($postData, $db) {
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
-function updatePortfolio($postData, $db) {
+function updatePortfolio ($postData, $db) {
     if(array_key_exists('submitPf',$postData)) {
         $query = $db->prepare("REPLACE INTO `portfolioItems`(`title`,`description`,`imgRef`,`projURL`,`github`)
                                      VALUES (:title, :descr, :picRef, :url, :github);");
@@ -119,7 +118,7 @@ function updatePortfolio($postData, $db) {
  * @param $db to select from
  * @return string of options w/ values
  */
-function makeImgDropDown($db){
+function makeImgDropDown ($db) {
     $query=$db->prepare("SELECT `id`,`name` FROM `images` WHERE `deleted` !=1;");
     $query->execute();
     $items=$query->fetchall();
@@ -130,14 +129,12 @@ function makeImgDropDown($db){
     echo $resultString;
 }
 
-//delete an item
-
 /**
  * Updates the DB with deleted flag for selected portfolio item
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to amend
  */
-function deletePfItem($postData, $db) {
+function deletePfItem ($postData, $db) {
     if(array_key_exists('pfDelete',$postData)) {
         $item = $postData['pfDelete'];
         $query = $db->prepare("UPDATE `portfolioItems` SET `deleted`=1 WHERE `title`='$item';");
@@ -145,12 +142,11 @@ function deletePfItem($postData, $db) {
     }
 }
 
-
 /** Updates
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
-function UpdateArticle($postData, $db) {
+function UpdateArticle ($postData, $db) {
     if(array_key_exists('artTitle',$postData)) {
         $query = $db->prepare("REPLACE INTO `articles`(`title`,`description`,`url`)
                               VALUES(:title, :descr, :url)");
@@ -161,13 +157,12 @@ function UpdateArticle($postData, $db) {
     }
 }
 
-//delete
 /**
  * Updates the DB with a deleted flag for selected Article item
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to amend
  */
-function DeleteArticle($postData, $db) {
+function DeleteArticle ($postData, $db) {
     if(array_key_exists('artDelete',$postData)) {
         $item = $postData['artDelete'];
         $query = $db->prepare("UPDATE `articles` SET `deleted`=1 WHERE `title`='$item';");
