@@ -1,10 +1,8 @@
 <?php
 require_once('portfolioLogic.php');
 require_once('cmsController.php');
-
 $abouts=FillAbout($db);
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -69,21 +67,7 @@ $abouts=FillAbout($db);
 		</aside>
 		<div class="smPort" id="portfolio">
 			<h1>Portfolio</h1>
-			<article class="primaryPfItem">
-				<section class="itemPic">
-					<img src="pilot.png" alt="image of pilot website"/>
-				</section>
-				<section class="itemText">
-					<h3>
-						<a href="#">Pilot store</a>
-					</h3>
-					<p>Our first responsive web-page build has us mimicking the PilotShop website.
-						The challenges of this were not only mimicking the site from its initial appearance,
-						figuring our where the break-points needed to be and copying it's responses
-						proved to be challenging.
-					</p>
-				</section>
-			</article>
+			<?php echo createFirstPfItem($db); ?>
 			<article class="secondaryPfItem">
 				<section class="itemPic">
 					<img src="mayden.png" alt="mayden logo"/>
