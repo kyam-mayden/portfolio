@@ -19,12 +19,13 @@ $about1=$aboutSection[3]['content'];
 $about2=$aboutSection[2]['content'];
 $email=$aboutSection[1]['content'];
 
-//populate form from DB for
-$query=$db->prepare("SELECT `title` FROM `portfolioItems`;");
+//populate form from DB for Portfolio
+$query=$db->prepare("SELECT `title` FROM `portfolioItems` WHERE `deleted`!=1;");
 $query->execute();
 $pfItems=$query->fetchall();
 
-$query=$db->prepare("SELECT `title` FROM `articles`");
+
+$query=$db->prepare("SELECT `title` FROM `articles` WHERE `deleted`!=1 ");
 $query->execute();
 $artItems=$query->fetchall();
 
@@ -70,7 +71,6 @@ function updateAbout($postData) {
 
 if(array_key_exists('submitAbout',$_POST)) {
     updateAbout($_POST);
-    echo "db updated";
 } else {}
 
 //var_dump($_POST);
@@ -84,12 +84,41 @@ function updatePortfolio($postData) {
     $query->bindValue(':descr',$postData['pfDesc']);
     $query->bindValue(':url',$postData['pfURL']);
     $query->bindValue(':github',$postData['githubURL']);
-    $query->bindValue(':picRef',$postData['picRef']);
+    $query->bindValue(':picRef',$postData['picSelect']);
     $query->execute();
 }
 
 if(array_key_exists('submitPf',$_POST)) {
     updatePortfolio($_POST);
-    echo "db updated PF";
-} else { echo "db not update PF";}
 
+} else {}
+
+
+
+//pictures
+
+function makeImgDropDown(){
+    $db = new PDO('mysql:host=127.0.0.1; dbname=portfolioKyam', 'root');
+    $query=$db->prepare("SELECT `id`,`name` FROM `images` WHERE `deleted` !=1;");
+    $query->execute();
+    $items=$query->fetchall();
+    $resultString = "";
+    foreach ($items as $item) {
+        $resultString .= '<option value="' . $item['id'] . '">' . $item['name'] . '</option>';
+    }
+    echo $resultString;
+}
+
+//delete an item
+
+var_dump($_POST['pfDelete']);
+
+function deletePfItem($postData,$db) {
+    $item=$postData['pfDelete'];
+    $query=$db->prepare("UPDATE `portfolioItems` SET `deleted`=1 WHERE `name`=$item;");
+    $query->execute();
+}
+
+if(array_key_exists('pfDelete',$_POST)) {
+    deletePfItem($_POST,$db);
+}

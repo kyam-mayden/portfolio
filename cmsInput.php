@@ -1,6 +1,6 @@
 <?php
 
-require('cmsController.php');
+require_once('cmsController.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,18 +54,15 @@ require('cmsController.php');
                 <input type="text" name="githubURL" value="<?php echo$wantedPfItem[0]['github']; ?>">
                 <br>
                 <label for="picSelect">Select picture</label>
-                <input type="text" name="picRef" value="<?php echo$wantedPfItem[0]['URL']; ?>">
+                <select name="picSelect">
+                    <?php echo makeImgDropDown() ?>
+                </select>
                 <input type="submit" name="submitPf" if="submitPf">
                 </form>
             </div>
         <div class="add">
             <h3>Add</h3>
             <form method="POST" action="cmsInput.php">
-                <form action="upload.php" method="post" enctype="multipart/form-data">
-                    Select image to upload:
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                    <input type="submit" value="Upload Image" name="submit">
-                </form>
                 <label for="pfTitle">Portfolio Item title </label>
                 <input type="text" name="pfTitle" placeholder="Enter new item name here">
                 <br>
@@ -78,16 +75,22 @@ require('cmsController.php');
                 <label for="githubURL">github URL</label>
                 <input type="text" name="githubURL" placeholder="Enter new item repo URL here">
                 <br>
+                <label for="picSelect">Select picture</label>
+                <select name="picSelect">
+                    <?php echo makeImgDropDown() ?>
+                </select>
 
-                <input type="submit">
+                <input type="submit" name="submitPf" if="submitPf">
             </form>
         </div>
         <div class="delete">
             <h3>Delete</h3>
-            <select name="itemDelete">
-                <?php echo makeDropDown($pfItems) ?>
-            </select>
-            <input type="submit" value="Delete">
+            <form method="POST" action="cmsInput.php">
+                <select name="pfDelete">
+                    <?php echo makeDropDown($pfItems) ?>
+                </select>
+                <input type="submit" value="pfDelete">
+            </form>
         </div>
     </main>
     <main id="articles">
