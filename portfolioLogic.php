@@ -49,16 +49,6 @@ function createNonFirstPfItem($db) {
     }
 }
 
-//createNonFirstPfItem($db);
-
-
-//$query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText`
-//                         FROM `portfolioItems`
-//                         LEFT JOIN `images`
-//                         ON `portfolioItems`.`imgRef`
-//                         =`images`.`id`
-//                         WHERE `portfolioItems`.`deleted` !=1  LIMIT 100 offset 1;"); //limit set as needed offset
-//$query->execute();
-//$result= $query->fetchAll();
-
-//var_dump($result[0]);
+function createArticles($db) {
+    $query=$db->prepare
+}

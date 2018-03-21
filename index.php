@@ -67,35 +67,11 @@ $abouts=FillAbout($db);
 		</aside>
 		<div class="smPort" id="portfolio">
 			<h1>Portfolio</h1>
-			<?php echo createFirstPfItem($db); ?>
-			<article class="secondaryPfItem">
-				<section class="itemPic">
-					<img src="mayden.png" alt="mayden logo"/>
-				</section>
-				<section class="itemText">
-					<h3>
-						<a href="#">Academy logo</a>
-					</h3>
-					<p>Our first piece of homework had us copying the Academy logo in CSS.
-						The challenge was getting your head around CSS positioning and display
-						properties, as well as figuring out how to have a curly-top on the A.
-					</p>
-				</section>
-			</article>
-			<article class="secondaryPfItem itemLrg">
-				<section class="itemPic">
-					<img src="jumbo.png" alt="jumbotron photo"/></section>
-				<section class="itemText">
-					<h3>
-						<a href="#">Jumbotron</a>
-					</h3>
-					<p>The Jumbotron was our first build: using a guide to build a
-						wireframe template and translate this into a web-page. As it was
-						our first build, figuring out how HTML and CSS elements interact
-						was the real difficulty.
-					</p>
-				</section>
-			</article>
+			<?php echo createFirstPfItem($db);
+			?>
+            <?php echo createNonFirstPfItem($db);
+            ?>
+
 		</div>
 	</main>
 	<footer class="container" id="foot">
