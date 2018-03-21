@@ -1,3 +1,11 @@
+<?php
+require_once('portfolioLogic.php');
+require_once('cmsController.php');
+
+$abouts=FillAbout($db);
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
