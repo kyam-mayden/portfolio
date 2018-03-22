@@ -2,7 +2,13 @@
 $db = new PDO('mysql:host=127.0.0.1; dbname=portfolioKyam', 'root');
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-function createFirstPfItem($db) {
+/**
+ * Gets selected fields from database of first portfolio item
+ *
+ * @param $db to select from
+ * @return array of fields for item
+ */
+function getFirstPfItem($db) {
     $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText` 
                          FROM `portfolioItems` 
                          LEFT JOIN `images`
@@ -11,6 +17,17 @@ function createFirstPfItem($db) {
                          WHERE `portfolioItems`.`deleted` !=1 LIMIT 1;");
     $query->execute();
     $result= $query->fetchAll();
+    return $result;
+}
+
+/**
+ * Takes first portofolio item fields and creates an html section
+ *
+ * @param $result of getFirstPfItem function
+ *
+ * @return string of hmtl including item fields
+ */
+function createFirstPfItem($result){
     return "<article class='primaryPfItem'>
 				<section class='itemPic'>
 					<img src=" . $result[0]['url'] . " alt=" . $result[0]['altText'] . "/>
@@ -25,7 +42,13 @@ function createFirstPfItem($db) {
 			</article>";
 }
 
-function createNonFirstPfItem($db) {
+/**
+ * Gets selected fields from database of non-first portfolio items
+ *
+ * @param $db to select from
+ * @return array of fields for items
+ */
+function getNonFirstPfItem($db) {
     $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText`
                          FROM `portfolioItems`
                          LEFT JOIN `images`
@@ -34,8 +57,19 @@ function createNonFirstPfItem($db) {
                          WHERE `portfolioItems`.`deleted` !=1  LIMIT 100 offset 1;"); //limit set as needed offset
     $query->execute();
     $result= $query->fetchAll();
+    return $result;
+}
+
+/**
+ * Takes non-first portofolio items fields and creates an html section
+ *
+ * @param $result result of getNonFirstPfItem function
+ *
+ * @return string of hmtl including items fields
+ */
+function createNonFirstPfItem($arr){
     $string="";
-    foreach($result as $result) {
+    foreach($arr as $result) {
         $string.="<article class='secondaryPfItem'>
 				    <section class='itemPic'>
 					    <img src=" . $result['url'] . " alt=" . $result['altText'] . "/>
@@ -51,12 +85,31 @@ function createNonFirstPfItem($db) {
     return $string;
 }
 
-function createArticles($db) {
+
+/**
+ * Gets all articles selected fields from DB
+ *
+ * @param $db to select from
+ *
+ * @return array of articles, fields
+ */
+function getArticles($db) {
     $query=$db->prepare("SELECT `title`,`description`,`url` FROM `articles`;");
     $query->execute();
     $result=$query->fetchAll();
+    return $result;
+}
+
+/**
+ * Creates HTML sections for articles with fields
+ *
+ * @param $arr result of getArticles function
+ *
+ * @return string of HTML to build section
+ */
+function createArticles($arr){
     $string="";
-    foreach($result as $result){
+    foreach($arr as $result){
         $string.= "<div class='blogs'>
 				<a href='" . $result['url'] . "'>" . $result['title'] . "</a>
 				<p>" . $result['description'] . "</p>
@@ -64,4 +117,3 @@ function createArticles($db) {
     }
     return $string;
 }
-
