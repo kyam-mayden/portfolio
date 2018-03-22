@@ -110,6 +110,7 @@ a{
 	opacity:0.7;
 	width:90%;
 	padding:5px;
+	display:inline-block;
 
 }
 
@@ -382,6 +383,11 @@ article{
 	.logoBox{
 		display:none;
 	}
+
+	#aboutBox{
+
+	}
+
 }
 
 @media screen and (min-width:1280px) {

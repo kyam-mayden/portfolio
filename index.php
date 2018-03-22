@@ -39,8 +39,8 @@ $firstItem= getFirstPfItem($db);
 						<h2>View Portfolio</h2>
 					</a>
 				</div>
-				<h4 id="about"><?php echo $abouts[2]['content']?>
-				</h4>
+				    <h4 id="about"><?php echo $abouts[2]['content']?>
+				    </h4>
 				<p><?php echo $abouts[3]['content']?>
 				</p>
 				<div class="logoBox">
