@@ -302,6 +302,10 @@ article{
 	position:relative;
 }
 
+footer, a{
+	float:right;
+}
+
 .email{
 	float:left;
 	margin:0;

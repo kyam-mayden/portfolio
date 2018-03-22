@@ -71,6 +71,7 @@ $firstItem= getFirstPfItem($db);
 	</main>
 	<footer class="container" id="foot">
 		<h4 class="email"><?php echo $abouts[1]['content']?></h4>
+        <a href="login.php">Admin login</a>
 	</footer>
 </body>
 </html>
