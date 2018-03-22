@@ -8,7 +8,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
  * @param $db to select from
  * @return array of fields for item
  */
-function getFirstPfItem($db) {
+function getFirstPfItem(PDO $db) {
     $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText` 
                          FROM `portfolioItems` 
                          LEFT JOIN `images`
@@ -48,7 +48,7 @@ function createFirstPfItem(array $result):string {
  * @param $db to select from
  * @return array of fields for items
  */
-function getNonFirstPfItem($db) {
+function getNonFirstPfItem(PDO $db) {
     $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText`
                          FROM `portfolioItems`
                          LEFT JOIN `images`
@@ -94,7 +94,7 @@ function createNonFirstPfItem(array $arr):string {
  *
  * @return array of articles, fields
  */
-function getArticles($db) {
+function getArticles(PDO $db) {
     $query=$db->prepare("SELECT `title`,`description`,`url` FROM `articles`;");
     $query->execute();
     $result=$query->fetchAll();

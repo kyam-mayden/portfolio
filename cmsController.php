@@ -8,7 +8,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
  * @param $db to select from
  * @return assoc array of about sections and content
  */
-function FillAbout ($db): array{
+function FillAbout (PDO $db): array{
     $query=$db->prepare("SELECT `name`,`content` FROM `staticContent` WHERE `name` != 'submitAbout' ORDER BY `name` DESC;");
     $query->execute();
     return $query->fetchall();
@@ -20,7 +20,7 @@ function FillAbout ($db): array{
  * @param $db to select from
  * @return assoc array of pf item names
  */
-function portfolioList ($db): array {
+function portfolioList (PDO $db): array {
     $query=$db->prepare("SELECT `title` FROM `portfolioItems` WHERE `deleted`!=1;");
     $query->execute();
     return $query->fetchall();
@@ -47,7 +47,7 @@ function makeDropDown (array $items): string {
  * @param assoc array $postData user response for item to select
  * @return array of item values
  */
-function portFolioFill ($db, array $postData): array {
+function portFolioFill (PDO $db, array $postData): array {
     $selectedItem=$postData['itemSelect'];
     $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`projURL`,`github`,`images`.`URL`
                                FROM `portfolioItems`
@@ -65,7 +65,7 @@ function portFolioFill ($db, array $postData): array {
  * @param $db to select from
  * @return array of articles
  */
-function ArticleList ($db): array{
+function ArticleList (PDO $db): array{
     $query=$db->prepare("SELECT `title` FROM `articles` WHERE `deleted`!=1 ");
     $query->execute();
     return $query->fetchall();
@@ -78,7 +78,7 @@ function ArticleList ($db): array{
  * @param assoc array $postData user response for article to select
  * @return array
  */
-function SelectArt ($db, array $postData): array{
+function SelectArt (PDO $db, array $postData): array{
     $artSelect = $postData['artSelect'];
     $query = $db->prepare("SELECT `id`,`title`,`description`, `URL`
                                FROM `articles`
@@ -93,7 +93,7 @@ function SelectArt ($db, array $postData): array{
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
-function updateAbout (array $postData, $db) {
+function updateAbout (array $postData,PDO $db) {
     if(array_key_exists('submitAbout',$postData)) {
         foreach($postData as $keys=>$values) {
             $query = $db->prepare("REPLACE INTO `staticContent`(`name`,`content`) VALUES (?,?)");
@@ -108,7 +108,7 @@ function updateAbout (array $postData, $db) {
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
-function updatePortfolio (array $postData, $db) {
+function updatePortfolio (array $postData,PDO $db) {
     if(array_key_exists('submitPf',$postData)) {
         $query = $db->prepare("REPLACE INTO `portfolioItems`(`title`,`description`,`imgRef`,`projURL`,`github`)
                                      VALUES (:title, :descr, :picRef, :url, :github);");
@@ -127,7 +127,7 @@ function updatePortfolio (array $postData, $db) {
  * @param $db to select from
  * @return array of images, values
  */
-function getImgDropDown ($db): array {
+function getImgDropDown (PDO $db): array {
     $query=$db->prepare("SELECT `id`,`name` FROM `images` WHERE `deleted` !=1;");
     $query->execute();
     $items=$query->fetchall();
@@ -155,7 +155,7 @@ function makeImgDropDown (array $arr): string {
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to amend
  */
-function deletePfItem (array $postData, $db) {
+function deletePfItem (array $postData,PDO $db) {
     if(array_key_exists('pfDelete',$postData)) {
         $item = $postData['pfDelete'];
         $query = $db->prepare("UPDATE `portfolioItems` SET `deleted`=1 WHERE `title`=:item;");
@@ -169,7 +169,7 @@ function deletePfItem (array $postData, $db) {
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
-function UpdateArticle (array $postData, $db) {
+function UpdateArticle (array $postData,PDO $db) {
     if(array_key_exists('artTitle',$postData)) {
         $query = $db->prepare("REPLACE INTO `articles`(`title`,`description`,`url`)
                               VALUES(:title, :descr, :url)");
@@ -186,7 +186,7 @@ function UpdateArticle (array $postData, $db) {
  * @param $postData used to test if function should run and informs what content should be added to DB
  * @param $db to amend
  */
-function DeleteArticle (array $postData, $db) {
+function DeleteArticle (array $postData,PDO $db) {
     if(array_key_exists('artDelete',$postData)) {
         $item = $postData['artDelete'];
         $query = $db->prepare("UPDATE `articles` SET `deleted`=1 WHERE `title`=:item;");
