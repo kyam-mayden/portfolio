@@ -5,7 +5,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 /**
  * Gets selected fields from database of first portfolio item
  *
- * @param $db to select from
+ * @param $db PDO to select from
  * @return array of fields for item
  */
 function getFirstPfItem(PDO $db) {
@@ -23,7 +23,7 @@ function getFirstPfItem(PDO $db) {
 /**
  * Takes first portofolio item fields and creates an html section
  *
- * @param $result of getFirstPfItem function
+ * @param $result Array of getFirstPfItem function
  *
  * @return string of hmtl including item fields
  */
@@ -45,7 +45,7 @@ function createFirstPfItem(array $result):string {
 /**
  * Gets selected fields from database of non-first portfolio items
  *
- * @param $db to select from
+ * @param $db PDO to select from
  * @return array of fields for items
  */
 function getNonFirstPfItem(PDO $db) {
@@ -64,7 +64,7 @@ function getNonFirstPfItem(PDO $db) {
 /**
  * Takes non-first portofolio items fields and creates an html section
  *
- * @param $result result of getNonFirstPfItem function
+ * @param $result Array result of getNonFirstPfItem function
  *
  * @return string of hmtl including items fields
  */
@@ -90,7 +90,7 @@ function createNonFirstPfItem(array $arr):string {
 /**
  * Gets all articles selected fields from DB
  *
- * @param $db to select from
+ * @param $db PDO to select from
  *
  * @return array of articles, fields
  */
@@ -104,7 +104,7 @@ function getArticles(PDO $db) {
 /**
  * Creates HTML sections for articles with fields
  *
- * @param $arr result of getArticles function
+ * @param $arr Array result of getArticles function
  *
  * @return string of HTML to build section
  */
