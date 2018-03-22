@@ -27,7 +27,7 @@ function getFirstPfItem($db) {
  *
  * @return string of hmtl including item fields
  */
-function createFirstPfItem($result){
+function createFirstPfItem(array $result):string {
     return "<article class='primaryPfItem'>
 				<section class='itemPic'>
 					<img src=" . $result[0]['url'] . " alt=" . $result[0]['altText'] . "/>
@@ -60,6 +60,7 @@ function getNonFirstPfItem($db) {
     return $result;
 }
 
+
 /**
  * Takes non-first portofolio items fields and creates an html section
  *
@@ -67,7 +68,7 @@ function getNonFirstPfItem($db) {
  *
  * @return string of hmtl including items fields
  */
-function createNonFirstPfItem($arr){
+function createNonFirstPfItem(array $arr):string {
     $string="";
     foreach($arr as $result) {
         $string.="<article class='secondaryPfItem'>
@@ -79,6 +80,7 @@ function createNonFirstPfItem($arr){
 						    <a href='" . $result['projURL'] . "'>" . $result['title'] . "</a>
 					    </h3>
 					    <p>" . $result['description'] . "
+					    </p>
 				    </section>
 			    </article>";
     }
@@ -106,7 +108,7 @@ function getArticles($db) {
  *
  * @return string of HTML to build section
  */
-function createArticles($arr){
+function createArticles(array $arr):string {
     $string="";
     foreach($arr as $result){
         $string.= "<div class='blogs'>
