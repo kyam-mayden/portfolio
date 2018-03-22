@@ -5,7 +5,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 /**
  * Gets about sections name, content from Db and turns into an array
  *
- * @param $db to select from
+ * @param $db PDO to select from
  * @return assoc array of about sections and content
  */
 function FillAbout (PDO $db):array {
@@ -17,7 +17,7 @@ function FillAbout (PDO $db):array {
 /**
  * Gets portfolio items names from DB and turns into an array
  *
- * @param $db to select from
+ * @param $db PDO to select from
  * @return assoc array of pf item names
  */
 function portfolioList (PDO $db):array {
@@ -33,18 +33,18 @@ function portfolioList (PDO $db):array {
  * @return string of options
  */
 function makeDropDown (array $items): string {
-    $resultString = "";
+    $dropDownString = "";
     foreach ($items as $item) {
-        $resultString .= '<option value="' . $item['title'] . '">' . $item['title'] . '</option>';
+        $dropDownString .= '<option value="' . $item['title'] . '">' . $item['title'] . '</option>';
     }
-    return $resultString;
+    return $dropDownString;
 }
 
 /**
  * Takes selected item POSTdata and selects values from DB based on POST value
  *
- * @param $db to select from
- * @param assoc array $postData user response for item to select
+ * @param $db PDO to select from
+ * @param $postData assoc array  user response for item to select
  * @return array of item values
  */
 function portFolioFill (PDO $db, array $postData):array {
@@ -62,7 +62,7 @@ function portFolioFill (PDO $db, array $postData):array {
 /**
  * Gets list of articles from DB
  *
- * @param $db to select from
+ * @param $db PDO to select from
  * @return array of articles
  */
 function ArticleList (PDO $db):array {
@@ -74,8 +74,8 @@ function ArticleList (PDO $db):array {
 /**
  * Takes selected article POSTdata and selects values from DB based on POST value
  *
- * @param $db to select from
- * @param assoc array $postData user response for article to select
+ * @param $db PDO to select from
+ * @param $postData assoc array userresponse for article to select
  * @return array
  */
 function SelectArt (PDO $db, array $postData):array {
@@ -90,7 +90,7 @@ function SelectArt (PDO $db, array $postData):array {
 /**
  * Updates About sections on DB
  *
- * @param $postData used to test if function should run and informs what content should be added to DB
+ * @param $postData Array used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
 function updateAbout (array $postData,PDO $db) {
@@ -105,7 +105,7 @@ function updateAbout (array $postData,PDO $db) {
 /**
  * Updates/adds Portfolio item based on Name
  *
- * @param $postData used to test if function should run and informs what content should be added to DB
+ * @param $postData array used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
 function updatePortfolio (array $postData,PDO $db) {
@@ -124,7 +124,7 @@ function updatePortfolio (array $postData,PDO $db) {
 /**
  * Takes list of Image names from DB and returns an array
  *
- * @param $db to select from
+ * @param $db PDO to select from
  * @return array of images, values
  */
 function getImgDropDown (PDO $db):array {
@@ -137,7 +137,7 @@ function getImgDropDown (PDO $db):array {
 /**
  * Takes array of images and creates a string of HTML options for each image
  *
- * @param $arr of images, values
+ * @param $arr Array of images, values
  *
  * @return string of HTML options for images
  */
@@ -152,7 +152,7 @@ function makeImgDropDown (array $arr):string {
 /**
  * Updates the DB with deleted flag for selected portfolio item
  *
- * @param $postData used to test if function should run and informs what content should be added to DB
+ * @param $postData Array used to test if function should run and informs what content should be added to DB
  * @param $db to amend
  */
 function deletePfItem (array $postData,PDO $db) {
@@ -166,7 +166,7 @@ function deletePfItem (array $postData,PDO $db) {
 
 /** Updates/adds Article based on name
  *
- * @param $postData used to test if function should run and informs what content should be added to DB
+ * @param $postData Array used to test if function should run and informs what content should be added to DB
  * @param $db to add to
  */
 function UpdateArticle (array $postData,PDO $db) {
@@ -183,7 +183,7 @@ function UpdateArticle (array $postData,PDO $db) {
 /**
  * Updates the DB with a deleted flag for selected Article item
  *
- * @param $postData used to test if function should run and informs what content should be added to DB
+ * @param $postData Array used to test if function should run and informs what content should be added to DB
  * @param $db to amend
  */
 function DeleteArticle (array $postData,PDO $db) {
