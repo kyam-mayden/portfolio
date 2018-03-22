@@ -79,6 +79,7 @@ a{
 	z-index:3;
 	background-size:contain;
 	background:url("background.jpg") no-repeat fixed center;
+	text-align:center;
 }
 
 .buttonHolder{
@@ -100,18 +101,21 @@ a{
 
 .headImage p,
 .headImage h4{
-	position:absolute;
 	color:#ffffff;
 	text-align:center;
 	border-radius:5px;
-	margin:10px;
+	margin:10px auto;
 	background-color:#36688d;
 	font-weight:200;
 	opacity:0.7;
+	width:90%;
+	padding:5px;
+
 }
 
 .headImage h4{
 	bottom:50px;
+	margin-top:100px;
 }
 
 .headImage P{
@@ -183,7 +187,7 @@ a[href="index.html"]{
 
 .logoBox{
 	position:relative;
-	top:360px;
+	top:250px;
 }
 
 div[class^="logoFor"]{
