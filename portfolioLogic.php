@@ -34,8 +34,9 @@ function createNonFirstPfItem($db) {
                          WHERE `portfolioItems`.`deleted` !=1  LIMIT 100 offset 1;"); //limit set as needed offset
     $query->execute();
     $result= $query->fetchAll();
+    $string="";
     foreach($result as $result) {
-        echo "<article class='secondaryPfItem'>
+        $string.="<article class='secondaryPfItem'>
 				    <section class='itemPic'>
 					    <img src=" . $result['url'] . " alt=" . $result['altText'] . "/>
 				    </section>
@@ -47,22 +48,20 @@ function createNonFirstPfItem($db) {
 				    </section>
 			    </article>";
     }
+    return $string;
 }
 
 function createArticles($db) {
     $query=$db->prepare("SELECT `title`,`description`,`url` FROM `articles`;");
     $query->execute();
     $result=$query->fetchAll();
+    $string="";
     foreach($result as $result){
-        echo "<div class=\'blogs\'>
-				<a href='" . $result['url'] . "'>" . $result['description'] . "</a>
+        $string.= "<div class='blogs'>
+				<a href='" . $result['url'] . "'>" . $result['title'] . "</a>
 				<p>" . $result['description'] . "</p>
 			</div>";
     }
+    return $string;
 }
 
-//$query=$db->prepare("SELECT `title`,`description`,`url` FROM `articles`;");
-//$query->execute();
-//$result=$query->fetchAll();
-//
-//var_dump($result);

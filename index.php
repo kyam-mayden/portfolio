@@ -54,16 +54,8 @@ $abouts=FillAbout($db);
 	<main class="container clearfix" id="bigBox">
 		<aside>
 			<h3>Recent Articles</h3>
-			<div class="blogs">
-				<a href="https://dev.to/martycrane/the-first-two-weeks-at-mayden-academy--3i14">The first two week at Mayden Academy</a>
-				<p>I have previously alluded to the fact
-						that I caused myself a lot more grey hairs...</p>
-			</div>
-			<div class="blogs">
-				<a href="https://dev.to/martycrane/the-start-of-a-new-journey--khl">A beginning..</a>
-				<p>I had spent a large amount of the last 10 years regretting the fact
-					that I had wasted my opportunity of...</p>
-			</div>
+            <?php echo createArticles($db);
+            ?>
 		</aside>
 		<div class="smPort" id="portfolio">
 			<h1>Portfolio</h1>
