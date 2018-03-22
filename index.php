@@ -1,10 +1,11 @@
 <?php
 require_once('portfolioLogic.php');
 require_once('cmsController.php');
-
 $abouts=FillAbout($db);
+$articles= getArticles($db);
+$nonFirstItem=getNonFirstPfItem($db);
+$firstItem= getFirstPfItem($db);
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -25,7 +26,7 @@ $abouts=FillAbout($db);
 			</ul>
 			<div class="title">
 				<h1>Kyam Harris</h1>
-				<h4>Somerset based Web Developer</h4>
+				<h4><?php echo $abouts[0]['content']?></h4>
 			</div>
 			<section class="social">
 				<a href="https://twitter.com/KyamLeigh" target="_blank" class="twitter"></a>
@@ -38,17 +39,9 @@ $abouts=FillAbout($db);
 						<h2>View Portfolio</h2>
 					</a>
 				</div>
-				<h4 id="about">My name is Kyam Harris, a father of two from
-					Somerset currently training to become a Full Stack Web
-					Developer with Mayden Academy.
-					I’ve spent my whole career in Customer Service, but recently
-					discovered that I enjoyed using computers to solve problems
-					at work and, after tinkering with Python, that I enjoy programming!
-				</h4>
-				<p>
-					I have been accepted to join Mayden Academy for 16 weeks to
-					learn HTML, CSS, Javascript and PHP, but more importantly to
-					think and code like a true programmer.
+				    <h4 id="about"><?php echo $abouts[2]['content']?>
+				    </h4>
+				<p><?php echo $abouts[3]['content']?>
 				</p>
 				<div class="logoBox">
 					<div class="logoForCSS"><img src="CSS3.png" alt="css logo"/></div>
@@ -64,66 +57,20 @@ $abouts=FillAbout($db);
 	<main class="container clearfix" id="bigBox">
 		<aside>
 			<h3>Recent Articles</h3>
-			<div class="blogs">
-				<a href="https://dev.to/martycrane/the-first-two-weeks-at-mayden-academy--3i14">The first two week at Mayden Academy</a>
-				<p>I have previously alluded to the fact
-						that I caused myself a lot more grey hairs...</p>
-			</div>
-			<div class="blogs">
-				<a href="https://dev.to/martycrane/the-start-of-a-new-journey--khl">A beginning..</a>
-				<p>I had spent a large amount of the last 10 years regretting the fact
-					that I had wasted my opportunity of...</p>
-			</div>
+            <?php echo createArticles($articles);
+            ?>
 		</aside>
 		<div class="smPort" id="portfolio">
 			<h1>Portfolio</h1>
-			<article class="primaryPfItem">
-				<section class="itemPic">
-					<img src="pilot.png" alt="image of pilot website"/>
-				</section>
-				<section class="itemText">
-					<h3>
-						<a href="#">Pilot store</a>
-					</h3>
-					<p>Our first responsive web-page build has us mimicking the PilotShop website.
-						The challenges of this were not only mimicking the site from its initial appearance,
-						figuring our where the break-points needed to be and copying it's responses
-						proved to be challenging.
-					</p>
-				</section>
-			</article>
-			<article class="secondaryPfItem">
-				<section class="itemPic">
-					<img src="mayden.png" alt="mayden logo"/>
-				</section>
-				<section class="itemText">
-					<h3>
-						<a href="#">Academy logo</a>
-					</h3>
-					<p>Our first piece of homework had us copying the Academy logo in CSS.
-						The challenge was getting your head around CSS positioning and display
-						properties, as well as figuring out how to have a curly-top on the A.
-					</p>
-				</section>
-			</article>
-			<article class="secondaryPfItem itemLrg">
-				<section class="itemPic">
-					<img src="jumbo.png" alt="jumbotron photo"/></section>
-				<section class="itemText">
-					<h3>
-						<a href="#">Jumbotron</a>
-					</h3>
-					<p>The Jumbotron was our first build: using a guide to build a
-						wireframe template and translate this into a web-page. As it was
-						our first build, figuring out how HTML and CSS elements interact
-						was the real difficulty.
-					</p>
-				</section>
-			</article>
+			<?php echo createFirstPfItem($firstItem);
+			?>
+            <?php echo createNonFirstPfItem($nonFirstItem);
+            ?>
+
 		</div>
 	</main>
 	<footer class="container" id="foot">
-		<h4 class="email">email: kyam.lh@googlemail.com</h4>
+		<h4 class="email"><?php echo $abouts[1]['content']?></h4>
 	</footer>
 </body>
 </html>

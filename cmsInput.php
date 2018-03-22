@@ -6,15 +6,16 @@ UpdateArticle($_POST,$db);
 deletePfItem($_POST,$db);
 updatePortfolio($_POST,$db);
 updateAbout($_POST,$db);
-$wantedArt= SelectArt($db,$_POST);
-$artItems=ArticleList($db);
+$wantedArt = SelectArt($db,$_POST);
+$artItems = ArticleList($db);
 $wantedPfItem = portfolioFill($db,$_POST);
-$pfItems=portfolioList($db);
-$aboutSection=FillAbout($db);
-$mainSub=$aboutSection[0]['content'];
-$about1=$aboutSection[3]['content'];
-$about2=$aboutSection[2]['content'];
-$email=$aboutSection[1]['content'];
+$pfItems = portfolioList($db);
+$aboutSection = FillAbout($db);
+$mainSub = $aboutSection[0]['content'];
+$about1 = $aboutSection[3]['content'];
+$about2 = $aboutSection[2]['content'];
+$email = $aboutSection[1]['content'];
+$imgArr = getImgDropDown($db);
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,10 +33,10 @@ $email=$aboutSection[1]['content'];
             <input type="text" name="subtitle" value="<?php echo "$mainSub"; ?> ">
             <br>
             <label for="about1">About me 1</label>
-            <textarea name="about1" type="text" cols="60" rows="6"> <?php echo"$about1"; ?></textarea>
+            <textarea name="about1" type="text" cols="60" rows="6"> <?php echo "$about1"; ?></textarea>
             <br>
             <label for="about2">aboutMe2</label>
-            <textarea name="about2" type="text" cols="60" rows="6"> <?php echo"$about2"; ?></textarea>
+            <textarea name="about2" type="text" cols="60" rows="6"> <?php echo "$about2"; ?></textarea>
             <br>
             <label for="email">email</label>
             <input type="text" name="email" value="<?php echo "$email"; ?>">
@@ -69,7 +70,7 @@ $email=$aboutSection[1]['content'];
                 <br>
                 <label for="picSelect">Select picture</label>
                 <select name="picSelect">
-                    <?php echo makeImgDropDown($db) ?>
+                    <?php echo makeImgDropDown($imgArr) ?>
                 </select>
                 <input type="submit" name="submitPf" if="submitPf">
                 </form>
@@ -91,7 +92,7 @@ $email=$aboutSection[1]['content'];
                 <br>
                 <label for="picSelect">Select picture</label>
                 <select name="picSelect">
-                    <?php echo makeImgDropDown($db) ?>
+                    <?php echo makeImgDropDown($imgArr) ?>
                 </select>
                 <input type="submit" name="submitPf" if="submitPf">
             </form>
