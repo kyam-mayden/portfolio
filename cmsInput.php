@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once('cmsController.php');
 DeleteArticle($_POST,$db);
@@ -16,13 +17,24 @@ $about1 = $aboutSection[3]['content'];
 $about2 = $aboutSection[2]['content'];
 $email = $aboutSection[1]['content'];
 $imgArr = getImgDropDown($db);
+
+if($_SESSION['loggedIn']===true) {
+    echo "You are logged in";
+} elseif ($_SESSION['loggedIn']!==true) {
+        header('Location: index.php');
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Kyam Harris | Edit page</title>
 </head>
 <body>
+    <form method="POST" action="logout.php">
+        <input type="submit" value="Log out">
+    </form>
+
     <header>
         <h1>Portfolio edit & amend page</h1>
     </header>

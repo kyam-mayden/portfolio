@@ -5,6 +5,8 @@ $abouts=FillAbout($db);
 $articles= getArticles($db);
 $nonFirstItem=getNonFirstPfItem($db);
 $firstItem= getFirstPfItem($db);
+
+
 ?>
 
 <!DOCTYPE html>
