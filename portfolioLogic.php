@@ -56,13 +56,13 @@ function createArticles($db) {
     foreach($result as $result){
         echo "<div class=\'blogs\'>
 				<a href='" . $result['url'] . "'>" . $result['description'] . "</a>
-				<p>" . $result['title'] . "</p>
+				<p>" . $result['description'] . "</p>
 			</div>";
     }
 }
 
-$query=$db->prepare("SELECT `title`,`description`,`url` FROM `articles`;");
-$query->execute();
-$result=$query->fetchAll();
-
-var_dump($result);
+//$query=$db->prepare("SELECT `title`,`description`,`url` FROM `articles`;");
+//$query->execute();
+//$result=$query->fetchAll();
+//
+//var_dump($result);

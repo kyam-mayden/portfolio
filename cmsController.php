@@ -29,7 +29,7 @@ function portfolioList ($db) {
 /**
  * Takes an array of $items and turns into a string to make a drop-down list
  *
- * @param $items
+ * @param $items array of items (options) to be made into a drop-down
  * @return string of options
  */
 function makeDropDown ($items) {
