@@ -85,7 +85,6 @@ function createNonFirstPfItem($arr){
     return $string;
 }
 
-
 /**
  * Gets all articles selected fields from DB
  *

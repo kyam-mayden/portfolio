@@ -15,6 +15,7 @@ $mainSub=$aboutSection[0]['content'];
 $about1=$aboutSection[3]['content'];
 $about2=$aboutSection[2]['content'];
 $email=$aboutSection[1]['content'];
+$imgArr=getImgDropDown($db);
 ?>
 <!DOCTYPE html>
 <html>
@@ -69,7 +70,7 @@ $email=$aboutSection[1]['content'];
                 <br>
                 <label for="picSelect">Select picture</label>
                 <select name="picSelect">
-                    <?php echo makeImgDropDown($db) ?>
+                    <?php echo makeImgDropDown($imgArr) ?>
                 </select>
                 <input type="submit" name="submitPf" if="submitPf">
                 </form>
@@ -91,7 +92,7 @@ $email=$aboutSection[1]['content'];
                 <br>
                 <label for="picSelect">Select picture</label>
                 <select name="picSelect">
-                    <?php echo makeImgDropDown($db) ?>
+                    <?php echo makeImgDropDown($imgArr) ?>
                 </select>
                 <input type="submit" name="submitPf" if="submitPf">
             </form>

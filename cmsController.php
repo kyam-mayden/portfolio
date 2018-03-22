@@ -122,21 +122,34 @@ function updatePortfolio ($postData, $db) {
 }
 
 /**
- * Takes list of Image names from DB and returns as a string
+ * Takes list of Image names from DB and returns an array
  *
  * @param $db to select from
- * @return string of options w/ values
+ * @return array of images, values
  */
-function makeImgDropDown ($db) {
+function getImgDropDown ($db) {
     $query=$db->prepare("SELECT `id`,`name` FROM `images` WHERE `deleted` !=1;");
     $query->execute();
     $items=$query->fetchall();
+    return $items;
+}
+
+/**
+ * Takes array of images and creates a string of HTML options for each image
+ *
+ * @param $arr of images, values
+ *
+ * @return string of HTML options for images
+ */
+function makeImgDropDown ($arr) {
     $resultString = "";
-    foreach ($items as $item) {
+    foreach ($arr as $item) {
         $resultString .= '<option value="' . $item['id'] . '">' . $item['name'] . '</option>';
     }
-    echo $resultString;
+    return $resultString;
 }
+
+
 
 /**
  * Updates the DB with deleted flag for selected portfolio item

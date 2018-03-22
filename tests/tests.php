@@ -2,13 +2,14 @@
 
 use PHPUnit\Framework\TestCase;
 
-require('../cmsController.php');
+require_once('../cmsController.php');
+require_once('../portfolioLogic.php');
 
 class StackTest extends TestCase
 {
     //makeDropDown
     //success
-
+    
 
     public function testDropDownSuccess ()
     {
