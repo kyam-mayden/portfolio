@@ -16,7 +16,7 @@ function getFirstPfItem(PDO $db) {
                          =`images`.`id`
                          WHERE `portfolioItems`.`deleted` !=1 LIMIT 1;");
     $query->execute();
-    $result= $query->fetchAll();
+    $result= $query->fetch();
     return $result;
 }
 
@@ -30,13 +30,13 @@ function getFirstPfItem(PDO $db) {
 function createFirstPfItem(array $result):string {
     return "<article class='primaryPfItem'>
 				<section class='itemPic'>
-					<img src=" . $result[0]['url'] . " alt=" . $result[0]['altText'] . "/>
+					<img src=" . $result['url'] . " alt=" . $result['altText'] . "/>
 				</section>
 				<section class='itemText'>
 					<h3>
-						<a href='" . $result[0]['projURL'] . "'>" . $result[0]['title'] . "</a>
+						<a href='" . $result['projURL'] . "'>" . $result['title'] . "</a>
 					</h3>
-					<p>" . $result[0]['description'] . "
+					<p>" . $result['description'] . "
 					</p>
 				</section>
 			</article>";

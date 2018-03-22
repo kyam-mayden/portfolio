@@ -8,10 +8,10 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
  * @param $db to select from
  * @return assoc array of about sections and content
  */
-function FillAbout (PDO $db): array{
+function FillAbout (PDO $db):array {
     $query=$db->prepare("SELECT `name`,`content` FROM `staticContent` WHERE `name` != 'submitAbout' ORDER BY `name` DESC;");
     $query->execute();
-    return $query->fetchall();
+    return $query->fetchAll();
 }
 
 /**
@@ -20,7 +20,7 @@ function FillAbout (PDO $db): array{
  * @param $db to select from
  * @return assoc array of pf item names
  */
-function portfolioList (PDO $db): array {
+function portfolioList (PDO $db):array {
     $query=$db->prepare("SELECT `title` FROM `portfolioItems` WHERE `deleted`!=1;");
     $query->execute();
     return $query->fetchall();
@@ -47,7 +47,7 @@ function makeDropDown (array $items): string {
  * @param assoc array $postData user response for item to select
  * @return array of item values
  */
-function portFolioFill (PDO $db, array $postData): array {
+function portFolioFill (PDO $db, array $postData):array {
     $selectedItem=$postData['itemSelect'];
     $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`projURL`,`github`,`images`.`URL`
                                FROM `portfolioItems`
@@ -65,7 +65,7 @@ function portFolioFill (PDO $db, array $postData): array {
  * @param $db to select from
  * @return array of articles
  */
-function ArticleList (PDO $db): array{
+function ArticleList (PDO $db):array {
     $query=$db->prepare("SELECT `title` FROM `articles` WHERE `deleted`!=1 ");
     $query->execute();
     return $query->fetchall();
@@ -78,7 +78,7 @@ function ArticleList (PDO $db): array{
  * @param assoc array $postData user response for article to select
  * @return array
  */
-function SelectArt (PDO $db, array $postData): array{
+function SelectArt (PDO $db, array $postData):array {
     $artSelect = $postData['artSelect'];
     $query = $db->prepare("SELECT `id`,`title`,`description`, `URL`
                                FROM `articles`
@@ -127,7 +127,7 @@ function updatePortfolio (array $postData,PDO $db) {
  * @param $db to select from
  * @return array of images, values
  */
-function getImgDropDown (PDO $db): array {
+function getImgDropDown (PDO $db):array {
     $query=$db->prepare("SELECT `id`,`name` FROM `images` WHERE `deleted` !=1;");
     $query->execute();
     $items=$query->fetchall();
@@ -141,7 +141,7 @@ function getImgDropDown (PDO $db): array {
  *
  * @return string of HTML options for images
  */
-function makeImgDropDown (array $arr): string {
+function makeImgDropDown (array $arr):string {
     $resultString = "";
     foreach ($arr as $item) {
         $resultString .= '<option value="' . $item['id'] . '">' . $item['name'] . '</option>';
@@ -188,9 +188,8 @@ function UpdateArticle (array $postData,PDO $db) {
  */
 function DeleteArticle (array $postData,PDO $db) {
     if(array_key_exists('artDelete',$postData)) {
-        $item = $postData['artDelete'];
         $query = $db->prepare("UPDATE `articles` SET `deleted`=1 WHERE `title`=:item;");
-        $query->bindParam(':item',$item);
+        $query->bindParam(':item', $postData['artDelete']);
         $query->execute();
     }
 }
