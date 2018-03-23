@@ -94,7 +94,8 @@ function createNonFirstPortfolioItem(array $arr):string {
  * @return array of articles, fields
  */
 function getArticles(PDO $db) {
-    $query=$db->prepare("SELECT `name`,`description`,`url` FROM `articles`;");
+    $query=$db->prepare("SELECT `name`,`description`,`url` FROM `articles`
+                                   WHERE `deleted`=0;");
     $query->execute();
     $result=$query->fetchAll();
     return $result;

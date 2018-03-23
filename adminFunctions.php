@@ -1,6 +1,6 @@
 <?php
-$db = new PDO('mysql:host=127.0.0.1; dbname=portfolioKyam', 'root');
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+require_once('cmsController.php');
+$db = callDatabase();
 
 /**
  *The function retrieves the password from the database based off the userName, de-hashes DB password and compares to input password

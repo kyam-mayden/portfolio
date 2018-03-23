@@ -148,7 +148,6 @@ function getImgDropDown (PDO $db):array {
     } else {
         echo 'Image list error';
     }
-
 }
 
 /**
