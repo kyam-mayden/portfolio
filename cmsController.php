@@ -101,11 +101,9 @@ function selectArticle (PDO $db, $postData):array {
  * @param $db to add to
  */
 function updateAbout (array $postData,PDO $db) {
-    if(array_key_exists('submitAbout',$postData)) {
-        foreach($postData as $name=>$content) {
-            $query = $db->prepare("REPLACE INTO `staticContent`(`name`,`content`) VALUES (?,?)");
-            $query->execute([$name, $content]);
-        }
+    foreach($postData as $name=>$content) {
+        $query = $db->prepare("REPLACE INTO `staticContent`(`name`,`content`) VALUES (?,?)");
+        $query->execute([$name, $content]);
     }
 }
 
@@ -116,7 +114,6 @@ function updateAbout (array $postData,PDO $db) {
  * @param $db to add to
  */
 function updatePortfolio (array $postData,PDO $db) {
-    if(array_key_exists('submitPf',$postData)) {
         $query = $db->prepare("REPLACE INTO `portfolioItems`(`title`,`description`,`imgRef`,`projURL`,`github`)
                                      VALUES (:title, :descr, :picRef, :url, :github);");
         if(array_key_exists('pfTitle',$postData)) {
@@ -135,7 +132,6 @@ function updatePortfolio (array $postData,PDO $db) {
             $query->bindValue(':picRef', $postData['picSelect']);
         };
         $query->execute();
-    }
 }
 
 /**
@@ -173,12 +169,10 @@ function makeImgDropDown (array $images):string {
  * @param $db to amend
  */
 function deletePortfolioItem ($postData,PDO $db) {
-    if(array_key_exists('pfDelete',$postData)) {
-        $item = $postData['pfDelete'];
-        $query = $db->prepare("UPDATE `portfolioItems` SET `deleted`=1 WHERE `title`=:item;");
-        $query->bindParam(':item',$item);
-        $query->execute();
-    }
+    $item = $postData['pfDelete'];
+    $query = $db->prepare("UPDATE `portfolioItems` SET `deleted`=1 WHERE `title`=:item;");
+    $query->bindParam(':item',$item);
+    $query->execute();
 }
 
 /** Updates/adds Article based on name
@@ -187,14 +181,12 @@ function deletePortfolioItem ($postData,PDO $db) {
  * @param $db to add to
  */
 function updateArticle (array $postData,PDO $db) {
-    if(array_key_exists('artTitle',$postData)) {
-        $query = $db->prepare("REPLACE INTO `articles`(`title`,`description`,`url`)
+    $query = $db->prepare("REPLACE INTO `articles`(`title`,`description`,`url`)
                               VALUES(:title, :descr, :url)");
-        $query->bindParam(':title', $postData['artTitle']);
-        $query->bindParam(':descr', $postData['artDesc']);
-        $query->bindParam(':url', $postData['artURL']);
-        $query->execute();
-    }
+    $query->bindParam(':title', $postData['artTitle']);
+    $query->bindParam(':descr', $postData['artDesc']);
+    $query->bindParam(':url', $postData['artURL']);
+    $query->execute();
 }
 
 /**
@@ -204,9 +196,8 @@ function updateArticle (array $postData,PDO $db) {
  * @param $db to amend
  */
 function deleteArticle (array $postData,PDO $db) {
-    if(array_key_exists('artDelete',$postData)) {
-        $query = $db->prepare("UPDATE `articles` SET `deleted`=1 WHERE `title`=:item;");
-        $query->bindParam(':item', $postData['artDelete']);
-        $query->execute();
-    }
+    $query = $db->prepare("UPDATE `articles` SET `deleted`=1 WHERE `title`=:item;");
+    $query->bindParam(':item', $postData['artDelete']);
+    $query->execute();
+
 }
