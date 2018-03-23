@@ -146,7 +146,7 @@ function getImgDropDown (PDO $db):array {
         $items=$query->fetchall();
         return $items;
     } else {
-        echo 'dun fucked';
+        echo 'Image list error';
     }
 
 }

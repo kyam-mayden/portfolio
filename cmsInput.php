@@ -2,8 +2,6 @@
 session_start();
 
 require_once('cmsLogic.php');
-
-var_dump($_POST);
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +18,16 @@ var_dump($_POST);
     <header>
         <h1>Portfolio edit & amend page</h1>
     </header>
+    <nav>
+        <h3>Portfolio</h3>
+        <a href=#portfolioEdit>Edit</a>
+        <a href=#portfolioAdd>Add</a>
+        <a href=#portfolioDelete>Delete</a>
+        <h3>Articles</h3>
+        <a href=#articleEdit>Edit</a>
+        <a href=#articleAdd>Add</a>
+        <a href=#articleDelete>Delete</a>
+    </nav>
     <main id="about">
         <h2>About me</h2>
         <form method="POST" action="cmsInput.php">
@@ -44,7 +52,7 @@ var_dump($_POST);
     </main>
     <main id="portfolio">
         <h2>Portfolio Items</h2>
-        <div class="edit">
+        <div class="edit" id="portfolioEdit">
             <h3>Edit</h3>
             <form method="POST" action="cmsInput.php">
                 <label for="itemSelect">Select item</label>
@@ -79,7 +87,7 @@ var_dump($_POST);
                 <input type="submit" name="submitPf" if="submitPf">
                 </form>
             </div>
-        <div class="add">
+        <div class="add" id="portfolioAdd">
             <h3>Add</h3>
             <form method="POST" action="cmsInput.php">
                 <div>
@@ -107,7 +115,7 @@ var_dump($_POST);
                 <input type="submit" name="submitPf">
             </form>
         </div>
-        <div class="delete">
+        <div class="delete" id="portfolioDelete">
             <h3>Delete</h3>
             <form method="POST" action="cmsInput.php">
                 <select name="pfDelete">
@@ -119,7 +127,7 @@ var_dump($_POST);
     </main>
     <main id="articles">
         <h2>Articles</h2>
-        <div>
+        <div id="articleEdit">
             <h3>Edit</h3>
             <form method="POST" action="cmsInput.php">
                 <label for="artSelect">Select item</label>
@@ -144,7 +152,7 @@ var_dump($_POST);
                 <input type="submit">
             </form>
         </div>
-        <div class="add">
+        <div class="add" id="articleAdd">
             <h3>Add</h3>
             <form method="POST" action="cmsInput.php">
                 <div>
@@ -162,7 +170,7 @@ var_dump($_POST);
                 <input type="submit">
             </form>
         </div>
-        <div class="delete">
+        <div class="delete" id="articleDelete">
             <h3>Delete</h3>
             <form method="POST" action="cmsInput.php">
                 <select name="artDelete">
