@@ -55,12 +55,12 @@ function makeDropDown (array $items): string {
  * @return array of item values
  */
 function portfolioFill (PDO $db, $postData):array {
-    $query = $db->prepare("SELECT `name`,`description`,`imgRef`,`projURL`,`github`,`images`.`URL`
+    $query = $db->prepare("SELECT `portfolioItems`.`name`,`description`,`imgRef`,`projURL`,`github`,`images`.`URL`
                                FROM `portfolioItems`
                                LEFT JOIN `images`
                                ON `portfolioItems`.`imgRef`
                                =`images`.`id`
-                               WHERE `name`=:postData && `name` != 'submitPF';");
+                               WHERE `portfolioItems`.`id` = :postData;");
     $query->bindParam(':postData', $postData);
     $query->execute();
     return $query->fetchall();
@@ -88,7 +88,7 @@ function articleList (PDO $db):array {
 function selectArticle (PDO $db, $postData):array {
     $query = $db->prepare("SELECT `id`,`name`,`description`, `URL`
                                FROM `articles`
-                               WHERE `name`=:postData;");
+                               WHERE `id`=:postData;");
     $query->bindParam(':postData', $postData);
     $query->execute();
     return $query->fetchall();
@@ -142,9 +142,13 @@ function updatePortfolio (array $postData,PDO $db) {
  */
 function getImgDropDown (PDO $db):array {
     $query=$db->prepare("SELECT `id`,`name` FROM `images` WHERE `deleted` =0;");
-    $query->execute();
-    $items=$query->fetchall();
-    return $items;
+    if ($query->execute()) {
+        $items=$query->fetchall();
+        return $items;
+    } else {
+        echo 'dun fucked';
+    }
+
 }
 
 /**

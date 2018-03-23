@@ -1,9 +1,9 @@
 <?php
 session_start();
 require_once('cmsController.php');
-$wantedArt = selectArticle($db,$_POST['artSelect']);
+$wantedArt = selectArticle($db, $_POST['artSelect']);
 $artItems = articleList($db);
-$wantedPfItem = portfolioFill($db,$_POST['itemSelect']);
+$wantedPfItem = portfolioFill($db, $_POST['itemSelect']);
 $pfItems = portfolioList($db);
 $aboutSection = fillAbout($db);
 $mainSub = $aboutSection[0]['content'];
@@ -12,11 +12,11 @@ $about2 = $aboutSection[2]['content'];
 $email = $aboutSection[1]['content'];
 $imgArr = getImgDropDown($db);
 
-//if($_SESSION['loggedIn']===true) {
-//echo "You are logged in";
-//} elseif ($_SESSION['loggedIn']!==true) {
-//header('Location: index.php');
-//}
+if($_SESSION['loggedIn']===true) {
+echo "You are logged in";
+} elseif ($_SESSION['loggedIn']!==true) {
+header('Location: index.php');
+}
 
 if(array_key_exists('submitAbout',$_POST)){
     updateAbout($_POST,$db);
