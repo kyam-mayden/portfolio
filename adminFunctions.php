@@ -1,6 +1,6 @@
 <?php
 require_once('cmsController.php');
-$db = callDatabase();
+$db = connectDatabase();
 
 /**
  *The function retrieves the password from the database based off the userName, de-hashes DB password and compares to input password

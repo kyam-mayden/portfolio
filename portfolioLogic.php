@@ -1,6 +1,6 @@
 <?php
 require_once('cmsController.php');
-$db = callDatabase();
+$db = connectDatabase();
 
 /**
  * Gets selected fields from database of first portfolio item

@@ -1,7 +1,6 @@
 <?php
 require_once('cmsController.php');
-$db = callDatabase();
-
+$db = connectDatabase();
 
 session_start();
 

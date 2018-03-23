@@ -1,6 +1,7 @@
 <?php
 require_once('portfolioLogic.php');
 require_once('cmsController.php');
+$db=connectDatabase();
 $abouts=fillAbout($db);
 $articles= getArticles($db);
 $nonFirstItem=getNonFirstPortfolioItem($db);

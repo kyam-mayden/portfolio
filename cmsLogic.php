@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('cmsController.php');
+$db = connectDatabase();
 $wantedArt = selectArticle($db, $_POST['artSelect']);
 $artItems = articleList($db);
 $wantedPfItem = portfolioFill($db, $_POST['itemSelect']);
