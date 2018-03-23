@@ -73,7 +73,7 @@ function portfolioFill (PDO $db, $postData):array {
  * @return array of articles
  */
 function articleList (PDO $db):array {
-    $query=$db->prepare("SELECT `name` FROM `articles` WHERE `deleted`=0 ");
+    $query=$db->prepare("SELECT `id`,`name` FROM `articles` WHERE `deleted`=0 ");
     $query->execute();
     return $query->fetchall();
 }
@@ -181,7 +181,7 @@ function updateArticle (array $postData,PDO $db) {
  * @param $db to amend
  */
 function deleteArticle (array $postData,PDO $db) {
-    $query = $db->prepare("UPDATE `articles` SET `deleted`=1 WHERE `name`=:item;");
+    $query = $db->prepare("UPDATE `articles` SET `deleted`=1 WHERE `id`=:item;");
     $query->bindParam(':item', $postData['artDelete']);
     $query->execute();
 
