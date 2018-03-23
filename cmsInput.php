@@ -2,6 +2,7 @@
 session_start();
 
 require_once('cmsLogic.php');
+//var_dump($_POST['artSelect']);
 ?>
 
 <!DOCTYPE html>

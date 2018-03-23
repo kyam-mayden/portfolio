@@ -2,9 +2,17 @@
 session_start();
 require_once('cmsController.php');
 $db = connectDatabase();
-$wantedArt = selectArticle($db, $_POST['artSelect']);
+
 $artItems = articleList($db);
-$wantedPfItem = portfolioFill($db, $_POST['itemSelect']);
+
+if (!empty($_POST['artSelect'])) {
+    $wantedArt = selectArticle($db, $_POST['artSelect']);
+}
+
+if (!empty($_POST['itemSelect'])) {
+    $wantedPfItem = portfolioFill($db, $_POST['itemSelect']);
+}
+
 $pfItems = portfolioList($db);
 $aboutSection = fillAbout($db);
 $mainSub = $aboutSection[0]['content'];

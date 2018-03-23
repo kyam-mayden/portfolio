@@ -9,9 +9,8 @@ $db = connectDatabase();
  * @param $enteredUName string value
  * @param $db PDO to draw from
  *
- *@return boolean result to confirm passwords match
+ * @return boolean result to confirm passwords match
  */
-
 function pullAndComparePasswords(string $enteredPassword, string $enteredUName, PDO $db):bool {
     $query = $db->prepare("SELECT `password` FROM `users` WHERE `user` = :uName;");
     $query->bindParam(':uName', $enteredUName);
@@ -23,22 +22,23 @@ function pullAndComparePasswords(string $enteredPassword, string $enteredUName, 
 function stripPassword(string $password):string {
     $string1 = trim($password);
     $string2 = htmlspecialchars($string1);
-    $newPassword = stripslashes($string2);
-    return $newPassword;
+    return stripslashes($string2);
+
 }
 
 function ifLoggedIn($loggedIn) {
-    if ($loggedIn === true) {
+    if ($loggedIn) {
         header('Location: cmsInput.php');
-    } else {  header('Location: index.php');}
+    } else {
+        header('Location: index.php');
+    }
 }
 
-function logIn($username, $password, $db)
-{
+function logIn($username, $password, $db) {
     $password = stripPassword($password);
-    if (pullAndComparePasswords($password, $username, $db) === true) {
-        return true;
-    } else {
-        return false;
+    $return = false;
+    if (pullAndComparePasswords($password, $username, $db)) {
+        $return = true;
     }
+    return $return;
 }

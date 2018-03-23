@@ -6,12 +6,6 @@ session_start();
 
 require('adminFunctions.php');
 
-$enteredUser=$_POST['username'];
-
-$enteredPassword=$_POST['password'];
-
-$_SESSION['loggedIn']=logIn($enteredUser,$enteredPassword,$db);
-
-echo $_SESSION['loggedIn'];
+$_SESSION['loggedIn']=logIn($_POST['username'],$_POST['password'],$db);
 
 ifLoggedIn($_SESSION['loggedIn']);

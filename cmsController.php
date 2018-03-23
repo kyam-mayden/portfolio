@@ -1,6 +1,5 @@
 <?php
 
-
 function connectDatabase() {
     $db = new PDO('mysql:host=127.0.0.1; dbname=portfolioKyam', 'root');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -13,7 +12,7 @@ $db = connectDatabase();
  * Gets about sections name, content from Db and turns into an array
  *
  * @param $db PDO to select from
- * @return assoc array of about sections and content
+ * @return array of about sections and content
  */
 function fillAbout (PDO $db):array {
     $query=$db->prepare("SELECT `name`,`content` FROM `staticContent` WHERE `name` != 'submitAbout' ORDER BY `name` DESC;");
@@ -54,7 +53,7 @@ function makeDropDown (array $items): string {
  * @param $postData string user response for item to select
  * @return array of item values
  */
-function portfolioFill (PDO $db, $postData):array {
+function portfolioFill (PDO $db, string $postData):array {
     $query = $db->prepare("SELECT `portfolioItems`.`name`,`description`,`imgRef`,`projURL`,`github`,`images`.`URL`
                                FROM `portfolioItems`
                                LEFT JOIN `images`
