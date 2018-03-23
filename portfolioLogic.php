@@ -1,6 +1,6 @@
 <?php
-$db = new PDO('mysql:host=127.0.0.1; dbname=portfolioKyam', 'root');
-$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+require_once('cmsController.php');
+$db = callDatabase();
 
 /**
  * Gets selected fields from database of first portfolio item
@@ -8,7 +8,7 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
  * @param $db PDO to select from
  * @return array of fields for item
  */
-function getFirstPfItem(PDO $db) {
+function getFirstPortfolioItem(PDO $db) {
     $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText` 
                          FROM `portfolioItems` 
                          LEFT JOIN `images`
@@ -25,9 +25,9 @@ function getFirstPfItem(PDO $db) {
  *
  * @param $result Array of getFirstPfItem function
  *
- * @return string of hmtl including item fields
+ * @return string to build portfolio Item in HTML
  */
-function createFirstPfItem(array $result):string {
+function createFirstPortfolioItem(array $result):string {
     return "<article class='primaryPfItem'>
 				<section class='itemPic'>
 					<img src=" . $result['url'] . " alt=" . $result['altText'] . "/>
@@ -48,7 +48,7 @@ function createFirstPfItem(array $result):string {
  * @param $db PDO to select from
  * @return array of fields for items
  */
-function getNonFirstPfItem(PDO $db) {
+function getNonFirstPortfolioItem(PDO $db) {
     $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText`
                          FROM `portfolioItems`
                          LEFT JOIN `images`
@@ -68,7 +68,7 @@ function getNonFirstPfItem(PDO $db) {
  *
  * @return string of hmtl including items fields
  */
-function createNonFirstPfItem(array $arr):string {
+function createNonFirstPortfolioItem(array $arr):string {
     $string="";
     foreach($arr as $result) {
         $string.="<article class='secondaryPfItem'>

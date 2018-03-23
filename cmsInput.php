@@ -2,16 +2,16 @@
 session_start();
 
 require_once('cmsController.php');
-DeleteArticle($_POST,$db);
-UpdateArticle($_POST,$db);
-deletePfItem($_POST,$db);
+deleteArticle($_POST,$db);
+updateArticle($_POST,$db);
+deletePortfolioItem($_POST,$db);
 updatePortfolio($_POST,$db);
 updateAbout($_POST,$db);
-$wantedArt = SelectArt($db,$_POST);
-$artItems = ArticleList($db);
-$wantedPfItem = portfolioFill($db,$_POST);
+$wantedArt = selectArticle($db,$_POST['artSelect']);
+$artItems = articleList($db);
+$wantedPfItem = portfolioFill($db,$_POST['itemSelect']);
 $pfItems = portfolioList($db);
-$aboutSection = FillAbout($db);
+$aboutSection = fillAbout($db);
 $mainSub = $aboutSection[0]['content'];
 $about1 = $aboutSection[3]['content'];
 $about2 = $aboutSection[2]['content'];
@@ -69,16 +69,16 @@ if($_SESSION['loggedIn']===true) {
             </form>
             <form method="POST" action="cmsInput.php">
                 <label for="pfTitle">Portfolio Item title </label>
-                <input type="text" name="pfTitle" value="<?php echo$wantedPfItem[0]['title']; ?>">
+                <input type="text" name="pfTitle" value="<?php echo $wantedPfItem[0]['title']; ?>">
                 <br>
                 <label for="pfDesc">Portfolio Item description </label>
-                <textarea name="pfDesc" type="text" cols="60" rows="8"><?php echo$wantedPfItem[0]['description']; ?></textarea>
+                <textarea name="pfDesc" type="text" cols="60" rows="8"><?php echo $wantedPfItem[0]['description']; ?></textarea>
                 <br>
                 <label for="pfURL">Item URL</label>
-                <input type="text" name="pfURL" value="<?php echo$wantedPfItem[0]['projURL']; ?>">
+                <input type="text" name="pfURL" value="<?php echo $wantedPfItem[0]['projURL']; ?>">
                 <br>
                 <label for="githubURL">github URL</label>
-                <input type="text" name="githubURL" value="<?php echo$wantedPfItem[0]['github']; ?>">
+                <input type="text" name="githubURL" value="<?php echo $wantedPfItem[0]['github']; ?>">
                 <br>
                 <label for="picSelect">Select picture</label>
                 <select name="picSelect">

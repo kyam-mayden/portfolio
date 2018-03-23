@@ -1,11 +1,10 @@
 <?php
 require_once('portfolioLogic.php');
 require_once('cmsController.php');
-$abouts=FillAbout($db);
+$abouts=fillAbout($db);
 $articles= getArticles($db);
-$nonFirstItem=getNonFirstPfItem($db);
-$firstItem= getFirstPfItem($db);
-
+$nonFirstItem=getNonFirstPortfolioItem($db);
+$firstItem= getFirstPortfolioItem($db);
 
 ?>
 
@@ -59,16 +58,13 @@ $firstItem= getFirstPfItem($db);
 	<main class="container clearfix" id="bigBox">
 		<aside>
 			<h3>Recent Articles</h3>
-            <?php echo createArticles($articles);
-            ?>
+            <?php echo createArticles($articles); ?>
 		</aside>
 		<div class="smPort" id="portfolio">
 			<h1>Portfolio</h1>
-			<?php echo createFirstPfItem($firstItem);
-			?>
-            <?php echo createNonFirstPfItem($nonFirstItem);
+			<?php echo createFirstPortfolioItem($firstItem);
+                  echo createNonFirstPortfolioItem($nonFirstItem);
             ?>
-
 		</div>
 	</main>
 	<footer class="container" id="foot">

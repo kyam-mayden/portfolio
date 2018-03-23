@@ -1,3 +1,0 @@
-"id","title","description","imgRef","projURL","github","deleted"
-1,"Pilot store","Our first responsive web-page build has us mimicking the PilotShop website. The challenges of this were not only mimicking the site from its initial appearance, figuring our where the break-points needed to be and copying it's responses proved to be challenging.",1,"https://dev.maydenacademy.co.uk/students/2018/kyam/responsiveSite/pilotStore.html",NULL,0
-2,"Academy Logo","Our first piece of homework had us copying the Academy logo in CSS. The challenge was getting your head around CSS positioning and display properties, as well as figuring out how to have a curly-top on the A.",NULL,NULL,"https://github.com/marty-crane/academyLogo",0
