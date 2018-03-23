@@ -9,12 +9,12 @@ $db = callDatabase();
  * @return array of fields for item
  */
 function getFirstPortfolioItem(PDO $db) {
-    $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText` 
+    $query=$db->prepare("SELECT `portfolioItems`.`name`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText` 
                          FROM `portfolioItems` 
                          LEFT JOIN `images`
                          ON `portfolioItems`.`imgRef`
                          =`images`.`id`
-                         WHERE `portfolioItems`.`deleted` !=1 LIMIT 1;");
+                         WHERE `portfolioItems`.`deleted` =0 LIMIT 1;");
     $query->execute();
     $result= $query->fetch();
     return $result;
@@ -34,7 +34,7 @@ function createFirstPortfolioItem(array $result):string {
 				</section>
 				<section class='itemText'>
 					<h3>
-						<a href='" . $result['projURL'] . "'>" . $result['title'] . "</a>
+						<a href='" . $result['projURL'] . "'>" . $result['name'] . "</a>
 					</h3>
 					<p>" . $result['description'] . "
 					</p>
@@ -49,24 +49,23 @@ function createFirstPortfolioItem(array $result):string {
  * @return array of fields for items
  */
 function getNonFirstPortfolioItem(PDO $db) {
-    $query=$db->prepare("SELECT `title`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText`
+    $query=$db->prepare("SELECT `portfolioItems`.`name`,`description`,`imgRef`,`github`,`projURL`,`images`.`url`,`images`.`altText`
                          FROM `portfolioItems`
                          LEFT JOIN `images`
                          ON `portfolioItems`.`imgRef`
                          =`images`.`id`
-                         WHERE `portfolioItems`.`deleted` !=1  LIMIT 100 offset 1;"); //limit set as needed offset
+                         WHERE `portfolioItems`.`deleted` =0  LIMIT 100 offset 1;"); //limit set as needed offset
     $query->execute();
     $result= $query->fetchAll();
     return $result;
 }
-
 
 /**
  * Takes non-first portofolio items fields and creates an html section
  *
  * @param $result Array result of getNonFirstPfItem function
  *
- * @return string of hmtl including items fields
+ * @return string to build portfolio Items in HTML
  */
 function createNonFirstPortfolioItem(array $arr):string {
     $string="";
@@ -77,7 +76,7 @@ function createNonFirstPortfolioItem(array $arr):string {
 				    </section>
 				    <section class='itemText'>
 					    <h3>
-						    <a href='" . $result['projURL'] . "'>" . $result['title'] . "</a>
+						    <a href='" . $result['projURL'] . "'>" . $result['name'] . "</a>
 					    </h3>
 					    <p>" . $result['description'] . "
 					    </p>
@@ -95,7 +94,7 @@ function createNonFirstPortfolioItem(array $arr):string {
  * @return array of articles, fields
  */
 function getArticles(PDO $db) {
-    $query=$db->prepare("SELECT `title`,`description`,`url` FROM `articles`;");
+    $query=$db->prepare("SELECT `name`,`description`,`url` FROM `articles`;");
     $query->execute();
     $result=$query->fetchAll();
     return $result;
@@ -112,7 +111,7 @@ function createArticles(array $arr):string {
     $string="";
     foreach($arr as $result){
         $string.= "<div class='blogs'>
-				<a href='" . $result['url'] . "'>" . $result['title'] . "</a>
+				<a href='" . $result['url'] . "'>" . $result['name'] . "</a>
 				<p>" . $result['description'] . "</p>
 			</div>";
     }

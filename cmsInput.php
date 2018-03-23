@@ -3,6 +3,7 @@ session_start();
 
 require_once('cmsLogic.php');
 
+var_dump($_POST);
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +56,7 @@ require_once('cmsLogic.php');
             <form method="POST" action="cmsInput.php">
                 <div>
                     <label for="pfTitle">Portfolio Item title </label>
-                    <input type="text" name="pfTitle" value="<?php echo $wantedPfItem[0]['title']; ?>">
+                    <input type="text" name="pfTitle" value="<?php echo $wantedPfItem[0]['name']; ?>">
                 </div>
                 <div>
                     <label for="pfDesc">Portfolio Item description </label>
@@ -72,7 +73,7 @@ require_once('cmsLogic.php');
                 <div>
                     <label for="picSelect">Select picture</label>
                     <select name="picSelect">
-                        <?php echo makeImgDropDown($imgArr) ?>
+                        <?php echo makeDropDown($imgArr) ?>
                     </select>
                 </div>
                 <input type="submit" name="submitPf" if="submitPf">
@@ -100,10 +101,10 @@ require_once('cmsLogic.php');
                 <div>
                     <label for="picSelect">Select picture</label>
                     <select name="picSelect">
-                        <?php echo makeImgDropDown($imgArr) ?>
+                        <?php echo makeDropDown($imgArr) ?>
                     </select>
                 </div>
-                <input type="submit" name="submitPf" if="submitPf">
+                <input type="submit" name="submitPf">
             </form>
         </div>
         <div class="delete">
@@ -112,7 +113,7 @@ require_once('cmsLogic.php');
                 <select name="pfDelete">
                     <?php echo makeDropDown($pfItems) ?>
                 </select>
-                <input type="submit" value="Delete">
+                <input type="submit" value="pfDelete">
             </form>
         </div>
     </main>
@@ -130,7 +131,7 @@ require_once('cmsLogic.php');
             <form method="POST" action="cmsInput.php">
                 <div>
                     <label for="artTitle">Article title </label>
-                    <input type="text" name="artTitle" value="<?php echo $wantedArt[0]['title']; ?>">
+                    <input type="text" name="artTitle" value="<?php echo $wantedArt[0]['name']; ?>">
                 </div>
                 <div>
                     <label for="artDesc">Article description </label>

@@ -12,11 +12,11 @@ $about2 = $aboutSection[2]['content'];
 $email = $aboutSection[1]['content'];
 $imgArr = getImgDropDown($db);
 
-if($_SESSION['loggedIn']===true) {
-echo "You are logged in";
-} elseif ($_SESSION['loggedIn']!==true) {
-header('Location: index.php');
-}
+//if($_SESSION['loggedIn']===true) {
+//echo "You are logged in";
+//} elseif ($_SESSION['loggedIn']!==true) {
+//header('Location: index.php');
+//}
 
 if(array_key_exists('submitAbout',$_POST)){
     updateAbout($_POST,$db);
