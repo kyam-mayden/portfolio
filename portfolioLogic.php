@@ -104,16 +104,16 @@ function getArticles(PDO $db) {
 /**
  * Creates HTML sections for articles with fields
  *
- * @param $arr Array result of getArticles function
+ * @param $articles Array result of getArticles function
  *
  * @return string of HTML to build section
  */
-function createArticles(array $arr):string {
+function createArticles(array $articles):string {
     $string="";
-    foreach($arr as $result){
+    foreach($articles as $article){
         $string.= "<div class='blogs'>
-				<a href='" . $result['url'] . "'>" . $result['name'] . "</a>
-				<p>" . $result['description'] . "</p>
+				<a href='" . $article['url'] . "'>" . $article['name'] . "</a>
+				<p>" . $article['description'] . "</p>
 			</div>";
     }
     return $string;

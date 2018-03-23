@@ -17,8 +17,7 @@ function pullAndComparePasswords(string $enteredPassword, string $enteredUName, 
     $query->bindParam(':uName', $enteredUName);
     $query->execute();
     $passwordDB = $query->fetch();
-    $boolX =  password_verify($enteredPassword, $passwordDB['password']);
-    return $boolX;
+    return password_verify($enteredPassword, $passwordDB['password']);
 }
 
 function stripPassword(string $password):string {
